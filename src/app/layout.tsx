@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Troque Agora',
   description: 'Marketplace focados em trocas para usuários de todo o Brasil',
   icons: {
-    icon: '/ta-ico-dark.svg'
+    icon: '/ta-icons/ta-pin-dark.svg'
   }
 }
 

@@ -4,7 +4,12 @@ export const theme = extendTheme({
     components: {
         Input: {
             defaultProps: {
-                focusBorderColor: 'teal.300'
+                focusBorderColor: 'teal.300',
+            },
+            baseStyle: {
+                field: {
+                    _placeholder: {color: "gray.400"}
+                }
             }
         },
         Link: {
