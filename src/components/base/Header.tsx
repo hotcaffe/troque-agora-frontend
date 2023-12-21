@@ -7,7 +7,7 @@ import { InteractionIcon } from "../common/InteractionIcon";
 
 export function Header() {
     return (
-        <Flex h="80px" bg="white" justify="center" align="center" gap="40px" px="20px">
+        <Flex w="100%" h="80px" bg="white" justify="center" align="center" gap="40px" px="20px" mb="20px">
             <Center flexDirection="column">
                 <TAIconNoBG w="60px" h="30px"/>
                 <Text color="teal.800" fontSize="7px" fontWeight="bold">TROQUE AGORA</Text>

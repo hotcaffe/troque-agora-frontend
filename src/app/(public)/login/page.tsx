@@ -7,7 +7,7 @@ import { Flex, Center, createIcon, Heading, Input, Button, Text, FormControl, Fo
 export default function Page() {
 
     return (
-        <Center h="100vh" bg="gray.100" flexDirection="column" gap="20px">
+        <Center h="100vh" flexDirection="column" gap="20px">
             <Link  fontWeight="bold">Retornar para a página principal</Link>
             <Flex w="800px" h="600px">
                 <Flex direction="column" align="center" justify="center" w="500px" gap="15px" rounded="10px 0 0 10px" bg="white">
