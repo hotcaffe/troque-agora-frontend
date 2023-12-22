@@ -1,4 +1,4 @@
-import { Card, CardFooter, Divider, Flex, Image, Text, VStack } from "@chakra-ui/react";
+import { Card, CardFooter, Divider, Image, Text, VStack } from "@chakra-ui/react";
 
 interface IProductCard {
     title: string;
@@ -9,7 +9,7 @@ interface IProductCard {
 
 export function ProductCard({title, image, value, userPercentage}: IProductCard) {
     return (
-         <Card w="165px" h="240px" bg="white" p="5px" gap="5px" _hover={{filter: 'brightness(0.95)'}} cursor="pointer">
+         <Card w="165px" h="240px" bg="white" px="5px" py="10px" gap="5px" _hover={{filter: 'brightness(0.95)'}} cursor="pointer" justify="space-between">
             <Image 
                 src={image}
                 alt={title}
@@ -18,7 +18,7 @@ export function ProductCard({title, image, value, userPercentage}: IProductCard)
                 h="140px"
                 fit="contain"
             />
-            <Divider />
+            <Divider color="gray.200" borderWidth="1px"/>
             <Text fontSize="12px" color="gray.400">
                 {title}
             </Text>
