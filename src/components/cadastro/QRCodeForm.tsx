@@ -1,11 +1,18 @@
-import { Button, Divider, Flex, HStack, Heading, Square, Text, VStack } from "@chakra-ui/react";
+import { Button, Divider, Flex, HStack, Heading, Image, Square, Text, VStack } from "@chakra-ui/react";
+import * as QRCode from 'qrcode'
+import { useEffect, useState } from "react";
 
 interface IQRCodeForm {
     goToNext: () => void;
 }
 
-
 export function QRCodeForm({goToNext}: IQRCodeForm) {
+    const [url, setUrl] = useState('');
+
+    useEffect(() => {
+        QRCode.toDataURL('teste', {width: 800, margin: 1}, (err, url) => setUrl(url))
+    }, [])
+
     return (
         <HStack h="100%">
             <VStack w="70%">
@@ -18,7 +25,7 @@ export function QRCodeForm({goToNext}: IQRCodeForm) {
                 <Divider  w="430px" borderWidth="2px" borderColor="teal.300" my="10px"/>
                 <VStack gap="0">
                     <Square size="430px" mb="15px" outline="1px solid" outlineColor="gray.100" rounded="10px">
-                        <Text>QR CODE AQUI</Text>
+                        <Image src={url} w="100%" h="100%"/>
                     </Square>
                     <Text fontSize="14px" color="teal.800">Se tiver dificuldades para ler o código, digite ele manualmente:</Text>
                     <Text fontSize="14px" color="teal.300">{"xjasdjJASIODUJaskld823UICNadadasf[er]fsdf43[~sdfksdfjn38cdsjnc"}</Text>
