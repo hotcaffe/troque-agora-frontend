@@ -5,7 +5,18 @@ export const theme = extendTheme({
         global: {
             body: {
                 background: "gray.100"
-            }
+            },
+            "&::-webkit-scrollbar": {
+                width: "4px",
+                height: "6px",
+            },
+            "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "#CAC3C3",
+                borderRadius: "4px",
+            },
+            "::-webkit-scrollbar-thumb:hover": {
+                backgroundColor: "blackAlpha.600",
+            },
         }
     },
     components: {
@@ -63,12 +74,22 @@ export const theme = extendTheme({
                     _hover: {
                         bg: "teal.500"
                     }
+                },
+                secondary: {
+                    bg: 'white',
+                    color: 'teal.300',
+                    outline: '2px solid',
+                    outlineOffset: '-2px',
+                    outlineColor: 'teal.300',
+                    _hover: {
+                        color: "teal.500",
+                        outlineColor: 'teal.500',
+                    }
                 }
             },
             defaultProps: {
                 variant: 'base'
             }
         }
-    },
-    
+    }
 })
