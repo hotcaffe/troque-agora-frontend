@@ -85,6 +85,17 @@ export const theme = extendTheme({
                         color: "teal.500",
                         outlineColor: 'teal.500',
                     }
+                },
+                inverse: {
+                    bg: 'white',
+                    color: 'red.300',
+                    outline: '2px solid',
+                    outlineOffset: '-2px',
+                    outlineColor: 'red.300',
+                    _hover: {
+                        color: 'red.500',
+                        outlineColor: 'red.500'
+                    }
                 }
             },
             defaultProps: {

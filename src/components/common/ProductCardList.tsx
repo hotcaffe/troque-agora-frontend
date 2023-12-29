@@ -7,7 +7,7 @@ interface IProductCardList extends FlexProps {
 
 export function ProductCardList({products, ...rest}: IProductCardList) {
     return (
-        <Flex {...rest} gap="10px" wrap="wrap">
+        <Flex {...rest} gap="10px" wrap="wrap" justify="center" w="100%">
             {products.map(product => 
                 <ProductCard key={product.id} image={product.image} title={product.title} userPercentage={product.userPercentage} value={product.value}/>)
             }
