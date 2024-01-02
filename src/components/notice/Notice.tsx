@@ -1,6 +1,7 @@
 import { Avatar, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { NoticeCard } from "./NoticeCard";
 import { NoticeInterestsCard } from "./NoticeInterestsCard";
+import { Dispatch, SetStateAction } from "react";
 
 const noticeData = {
     title: "Lorem ipsum dolor sit amet, sed do eiusmod tempor", 
@@ -57,7 +58,11 @@ const user = {
     email: "raphaelfusco@dominio.com"
 }
 
-export function Notice() {
+interface INotice {
+    setProposal: Dispatch<SetStateAction<boolean>>;
+}
+
+export function Notice({setProposal}: INotice) {
     return (
         <>
             <HStack gap="10px" w="100%">
@@ -80,7 +85,7 @@ export function Notice() {
                     topicList={noticeData.topicList}
                     imageList={noticeData.imageList}
                 />
-                <NoticeInterestsCard interestList={interestsData}/>
+                <NoticeInterestsCard interestList={interestsData} setProposal={setProposal}/>
             </Flex>
         </>
     )

@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
 })
 
 export function ProposalItemForm({setProposalList}: IProposalItemForm) {
-    const {register, handleSubmit, formState} = useForm<IProposalItem>({
+    const {register, handleSubmit, formState, reset} = useForm<IProposalItem>({
         mode: 'all',
         resolver: yupResolver(schema)
     })
@@ -29,7 +29,8 @@ export function ProposalItemForm({setProposalList}: IProposalItemForm) {
     const {errors} = formState;
 
     function onSubmit(data: IProposalItem) {
-        setProposalList(proposalList => [...proposalList, data])
+        setProposalList(proposalList => [...proposalList, data]);
+        reset();
     }
 
     return (

@@ -2,31 +2,53 @@ import { Box, Button, ButtonGroup, Center, Divider, Flex, FormControl, FormLabel
 import { FormBody } from "../common/FormBody";
 import { X } from "react-feather";
 import { InteractionIcon } from "../common/InteractionIcon";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { IProposalItem } from "./interfaces/proposal";
-import { useForm } from "react-hook-form";
 import { ProposalItemForm } from "./ProposalItemForm";
+import { useForm } from "react-hook-form";
+import * as Yup from 'yup'
+import { yupResolver } from "@hookform/resolvers/yup";
+import { FormInput } from "../common/FormInput";
 
+const schema = Yup.object().shape({
+    vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(64, "Maxímo de 64 caracteres").required("Campo obrigatório"),
+    vc_descricao: Yup.string().min(12, "Deve possuir no mínimo 12 caracteres").max(128, "Máximo de 128 caracteres").required("Campo obrigatório"),
+})
 
+interface IProposal {
+    setProposal: Dispatch<SetStateAction<boolean>>;
+}
 
-export function Proposal() {
-    const [proposalList, setProposalList] = useState<IProposalItem[]>([])
+export function Proposal({setProposal}: IProposal) {
+    const [proposalList, setProposalList] = useState<IProposalItem[]>([]);
+
+    const {register, handleSubmit, formState} = useForm<{vc_titulo: string, vc_descricao: string}>({
+        mode: 'all',
+        resolver: yupResolver(schema)
+    })
+    
+    const {errors} = formState;
 
     function onRemoveItem(index: number) {
         setProposalList(proposalList => [...proposalList.filter((_, subIndex) => subIndex != index)])
     }
 
+    function onSumbit(data: {vc_titulo: string, vc_descricao: string}) {
+        console.log({
+            ...data,
+            itemList: proposalList
+        })
+    }
+
     return (
-        <VStack bg="white" w="1000px" p="20px" rounded="10px" align="start">
-            <FormBody title="Cadastrar uma contra-proposta:">
-                <FormControl w="300px" >
-                    <FormLabel color="teal.300">Título</FormLabel>
-                    <Input placeholder="Digite o título da proposta" type="text" pattern="^[a-zA-Z]+$"/>
-                </FormControl>
-                <FormControl w="350px" >
-                    <FormLabel color="teal.300">Descrição</FormLabel>
-                    <Input placeholder="Digite uma descrição pra proposta" type="text" pattern="^[a-zA-Z]+$"/>
-                </FormControl>
+        <VStack bg="white" maxW="1150px" p="20px" rounded="10px" align="start">
+            <FormBody title="Cadastrar uma contra-proposta:" as='form' >
+                <FormInput title='Título' error={errors?.vc_titulo?.message} w="300px" man>
+                    <Input placeholder="Digite o título da proposta" type="text" pattern="^[a-z0-9A-Z]+$" {...register("vc_titulo")}/>
+                </FormInput>
+                <FormInput title='Descrição' error={errors?.vc_descricao?.message} w="350px" man>
+                    <Input placeholder="Digite uma descrição pra proposta" type="text" pattern="^[a-z0-9A-Z]+$" {...register("vc_descricao")}/>
+                </FormInput>
             </FormBody>
             <Divider borderWidth="2px" borderColor="gray.100" my="10px"/>
             <ProposalItemForm setProposalList={setProposalList}/>
@@ -73,8 +95,8 @@ export function Proposal() {
             <Divider borderWidth="2px" borderColor="teal.300" my="10px"/>
             <Flex w="100%" justify="end">
                 <ButtonGroup>
-                    <Button variant="inverse" w="100px">Cancelar</Button>
-                    <Button w="100px">Finalizar</Button>
+                    <Button variant="inverse" w="100px" onClick={() => setProposal(false)}>Cancelar</Button>
+                    <Button w="100px" onClick={handleSubmit(onSumbit, () => console.log(errors))}>Finalizar</Button>
                 </ButtonGroup>
             </Flex>
         </VStack>

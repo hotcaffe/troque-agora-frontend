@@ -1,13 +1,15 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Button, Divider, Heading, VStack } from "@chakra-ui/react";
+import { Dispatch, SetStateAction } from "react";
 
 interface INoticeInterestCard {
     interestList: {
         title: string;
         description: string;
     }[]
+    setProposal: Dispatch<SetStateAction<boolean>>;
 }
 
-export function NoticeInterestsCard({interestList}: INoticeInterestCard) {
+export function NoticeInterestsCard({interestList, setProposal}: INoticeInterestCard) {
     return (
         <VStack bg="white" justify="space-between" rounded="10px" w="300px" maxH="550px">
             <VStack p="10px" w="100%">
@@ -24,7 +26,9 @@ export function NoticeInterestsCard({interestList}: INoticeInterestCard) {
                     ))}
                 </Accordion>
             </VStack>
-            <Button fontSize="16px" fontWeight="semibold" w="100%" h="50px" rounded="0 0 10px 10px">Realizar proposta de troca</Button>
+            <Button onClick={() => setProposal(true)} fontSize="16px" fontWeight="semibold" w="100%" h="50px" rounded="0 0 10px 10px">
+                Realizar proposta de troca
+            </Button>
         </VStack>
     )
 }

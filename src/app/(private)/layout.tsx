@@ -4,9 +4,11 @@ import { ReactNode } from "react";
 
 export default function PrivateLayout({children}: {children: ReactNode}) {
     return (
-        <Box pb="40px">
+        <Box pb="40px" >
             <Header/>
-            {children}
+            <Box px="20px">
+                {children}
+            </Box>
         </Box>
     )
 }

@@ -1,3 +1,4 @@
+import { formatValue } from "@/utils/formatValue";
 import { Card, CardFooter, Divider, Image, Text, VStack } from "@chakra-ui/react";
 
 interface IProductCard {
@@ -25,7 +26,7 @@ export function ProductCard({title, image, value, userPercentage}: IProductCard)
             <CardFooter justify="space-between" p="0">
                 <VStack align="flex-start" gap="2px">
                     <Text fontSize="8px" color="gray.800" fontWeight="semibold">Valor a negociar</Text>
-                    <Text fontSize="14px" color="teal.300" fontWeight="semibold">R$ {value}</Text>
+                    <Text fontSize="14px" color="teal.300" fontWeight="semibold">{formatValue('currency', value)}</Text>
                 </VStack>
                 <Divider orientation="vertical" h="30px" borderWidth="1px" borderColor="teal.800"/>
                 <VStack align="flex-end" gap="2px">

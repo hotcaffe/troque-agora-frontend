@@ -2,6 +2,7 @@ import { Divider, Flex, HStack, Heading, Image, ListItem, Progress, Square, Stat
 import { NoticeMiniaturePreview } from "./NoticeMiniaturePreview";
 import { useState } from "react";
 import { ZoomImageCard } from "../common/ZoomImageCard";
+import { formatValue } from "@/utils/formatValue";
 
 interface INoticeCard {
     title: string;
@@ -40,7 +41,7 @@ export function NoticeCard({title, description, noticeTotalValue, noticeUnit, no
                 <Divider borderWidth="2px"/>
                 <Stat>
                     <StatLabel>Valor a negociar:</StatLabel>
-                    <StatNumber color="teal.300">R$ {noticeTotalValue}</StatNumber>
+                    <StatNumber color="teal.300">{formatValue('currency', noticeTotalValue)}</StatNumber>
                     <StatHelpText fontWeight="semibold">
                         <Flex>
                             Unidade: <Text color="teal.400" w="fit-content" ml="5px" mr="10px">{noticeUnit}</Text> 
