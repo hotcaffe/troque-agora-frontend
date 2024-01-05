@@ -10,7 +10,7 @@ export default function Page() {
 
     return (
         <Center h="100vh" flexDirection="column" gap="20px">
-            <Link  fontWeight="bold" to>Retornar para a página principal</Link>
+            <Link  fontWeight="bold" href="/">Retornar para a página principal</Link>
             <Flex w="800px" h="600px">
                 <Flex direction="column" align="center" justify="center" w="500px" gap="15px" rounded="10px 0 0 10px" bg="white">
                     <TAPin w="48px" h="48px" mb="15px" />

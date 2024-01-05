@@ -9,9 +9,10 @@ import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInput } from "../common/FormInput";
+import { SimpleStateList } from "../common/SimpleStateList";
 
 const schema = Yup.object().shape({
-    vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(64, "Maxímo de 64 caracteres").required("Campo obrigatório"),
+    vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(128, "Maxímo de 64 caracteres").required("Campo obrigatório"),
     vc_descricao: Yup.string().min(12, "Deve possuir no mínimo 12 caracteres").max(128, "Máximo de 128 caracteres").required("Campo obrigatório"),
 })
 
@@ -54,40 +55,25 @@ export function Proposal({setProposal}: IProposal) {
             <ProposalItemForm setProposalList={setProposalList}/>
             <Divider borderWidth="2px" borderColor="gray.100" my="10px"/>
             {proposalList.length > 0 ? 
-                <TableContainer maxH="300px" overflowY="scroll">
-                    <Table>
-                        <Thead >
-                            <Tr>
-                                <Th/>
-                                <Th color="gray.400">Título</Th>
-                                <Th color="gray.400">Descrição</Th>
-                                <Th color="gray.400">Quantidade</Th>
-                                <Th color="gray.400">Unidade</Th>
-                                <Th color="gray.400">Situação</Th>
-                                <Th color="gray.400">Categoria</Th>
+                <SimpleStateList labels={['Título', 'Descrição', 'Quantidade', 'Unidade', 'Situação', 'Categoria']}>
+                    {proposalList.map((item, index) => 
+                        (
+                            <Tr key={index} color="teal.800">
+                                <Td><InteractionIcon as={X} w="16px" h="16px" onClick={() => onRemoveItem(index)}/></Td>
+                                <Td maxW="150px" minW="150px" overflowX="hidden" whiteSpace="nowrap" textOverflow="ellipsis" title={item.vc_itemTitulo}>
+                                    {item.vc_itemTitulo}
+                                </Td>
+                                <Td maxW="200px" minW="200px" overflowX="hidden" whiteSpace="nowrap" textOverflow="ellipsis" title={item.vc_descricao}>
+                                    {item.vc_descricao}
+                                </Td>
+                                <Td maxW="100px" minW="100px">{item.fl_quantidade}</Td>
+                                <Td maxW="100px" minW="100px">{item.ch_unidade}</Td>
+                                <Td maxW="130px" minW="130px">{item.vc_situacaoProduto}</Td>
+                                <Td maxW="130px" minW="130px">{item.id_categoria}</Td>
                             </Tr>
-                        </Thead>
-                        <Tbody maxH="300px" overflowY="scroll">
-                            {proposalList.map((item, index) => 
-                                (
-                                    <Tr key={index} color="teal.800">
-                                        <Td><InteractionIcon as={X} w="16px" h="16px" onClick={() => onRemoveItem(index)}/></Td>
-                                        <Td maxW="150px" minW="150px" overflowX="hidden" whiteSpace="nowrap" textOverflow="ellipsis" title={item.vc_itemTitulo}>
-                                            {item.vc_itemTitulo}
-                                        </Td>
-                                        <Td maxW="200px" minW="200px" overflowX="hidden" whiteSpace="nowrap" textOverflow="ellipsis" title={item.vc_descricao}>
-                                            {item.vc_descricao}
-                                        </Td>
-                                        <Td maxW="100px" minW="100px">{item.fl_quantidade}</Td>
-                                        <Td maxW="100px" minW="100px">{item.ch_unidade}</Td>
-                                        <Td maxW="130px" minW="130px">{item.vc_situacaoProduto}</Td>
-                                        <Td maxW="130px" minW="130px">{item.id_categoria}</Td>
-                                    </Tr>
-                                )    
-                            )}
-                        </Tbody>
-                    </Table>
-                </TableContainer> : 
+                        )    
+                    )}
+                </SimpleStateList> : 
                 <Center w="100%" h="150px">
                     <Text color="gray.400">Informe itens acima para adicioná-los na sua proposta!</Text>
                 </Center>
