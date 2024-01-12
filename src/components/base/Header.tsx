@@ -23,7 +23,7 @@ export function Header() {
             <HStack gap="20px">
                 <InteractionIcon as={Bell}/>
                 <InteractionIcon as={MessageCircle}/>
-                <InteractionIcon as={User}/>
+                <Link href="/perfil"><InteractionIcon as={User} /></Link>
             </HStack>
             <Link href="/anuncio"><Button minW="80px">Anunciar</Button></Link>
         </Flex>
