@@ -30,6 +30,16 @@ export const theme = extendTheme({
                 }
             }
         },
+        Select: {
+            defaultProps: {
+                focusBorderColor: 'teal.300',
+            },
+            baseStyle: {
+                field: {
+                    _placeholder: {color: "gray.400"}
+                }
+            }
+        },
         Link: {
             baseStyle: {
                 textDecoration: "underline",

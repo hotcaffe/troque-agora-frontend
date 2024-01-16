@@ -7,6 +7,9 @@ interface IProposal {
 }
 
 interface IProposalItem {
+    id_usuarioProposta: number;
+    id_propostaTroca: number;
+    id_detalheProposta: number;
     vc_itemTitulo: string;
     vc_descricao: string;
     fl_quantidade: number;
@@ -15,4 +18,8 @@ interface IProposalItem {
     id_categoria: number;
 }
 
-export {IProposal, IProposalItem}
+interface IProposalData extends IProposal {
+    items: IProposalItem[]
+}
+
+export {IProposal, IProposalItem, IProposalData}
