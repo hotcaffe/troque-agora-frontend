@@ -2,6 +2,7 @@ import { GenericDialog } from "@/components/common/GenericDialog";
 import { INoticeData } from "@/components/notice/interfaces/notice";
 import { formatValue } from "@/utils/formatValue";
 import { Divider, HStack, Icon, ListItem, Text, Circle, VStack, IconButton, useDisclosure, Flex, Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
+import { useRouter } from "next/navigation";
 import { Edit, Trash, X } from "react-feather";
 
 interface INoticeCard {
@@ -10,6 +11,7 @@ interface INoticeCard {
 
 export function NoticeCard({data}: INoticeCard) {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const router = useRouter();
 
     function onRemove() {
         onClose()
@@ -50,6 +52,7 @@ export function NoticeCard({data}: INoticeCard) {
                     data.bo_ativo && 
                     <IconButton 
                         icon={<Icon as={Edit} w="24px" h="24px"/>} aria-label="Editar anúncio" variant="secondary" h="95px"
+                        onClick={() => router.push('/perfil/anuncio/' + data.id_anuncioTroca)}
                     />
                 }
             </HStack>

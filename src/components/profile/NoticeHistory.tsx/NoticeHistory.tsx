@@ -1,18 +1,45 @@
-import { Box, Divider, Flex, HStack, Heading, VStack } from "@chakra-ui/react";
+import { Box, Center, Divider, Flex, HStack, Heading, Icon, IconButton, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
 import { NoticeList } from "./NoticeList";
 import { INoticeData } from "@/components/notice/interfaces/notice";
+import { useQuery } from "react-query";
+import axios from "axios";
+import { api } from "@/utils/api";
+import { RotateCw } from "react-feather";
+import { InteractionIcon } from "@/components/common/InteractionIcon";
+import { useEffect } from "react";
 
-interface INoticeHistory {
-    list: INoticeData[]
-}
+export function NoticeHistory() {
+    const toast = useToast();
 
-export function NoticeHistory({list}: INoticeHistory) {
+    async function get(): Promise<INoticeData[]> {
+        return await api.get("/notice").then(res => res?.data);
+    }
+
+    const {data, isLoading, isError, refetch} = useQuery('notice-history', get, {
+        onError: () => {
+            toast({
+                description: "Erro ao carregar a lista de anúncios",
+                status: "error"
+            })
+        }
+    });
+
     return (
         <VStack p="20px 40px" gap="15px" borderRadius="10px" bg="white" w="1000px">
             <Heading fontSize="24px" color="teal.800" w="100%" >Seus anúncios</Heading>
             <Divider borderWidth="4px" w="100%" borderColor="gray.50"/>
             <HStack gap="10px" justify="space-between" w="100%" h="100%" align="start" minH="830px">
-                <NoticeList list={list}/>
+                <Center w="100%">
+                    {isError ? 
+                        <HStack gap="5px">
+                            <Text fontWeight="semibold" color="gray.500">Erro ao recuperar os dados! Tente novamente.</Text> 
+                            <InteractionIcon as={RotateCw} onClick={() => refetch()} aria-label="Recarregar conteúdo" color="teal.300"/>
+                        </HStack> :
+                        <>
+                            {(isLoading || !data) ? <Spinner /> : <NoticeList list={data}/>}
+                        </>
+                    }
+                </Center>
             </HStack>
         </VStack>
     )

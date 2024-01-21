@@ -8,12 +8,12 @@ interface ISimpleStateList {
 
 export function SimpleStateList({labels, children}: ISimpleStateList) {
     return (
-        <TableContainer maxH="300px" overflowY="scroll" overflowX="hidden">
+        <TableContainer maxH="300px" overflowY="scroll" overflowX="hidden" w="100%">
             <Table >
                 <Thead >
                     <Tr>
                         <Th/>
-                        {labels.map((label: string) => <Th color="gray.400">{label}</Th>)}
+                        {labels.map((label: string) => <Th key={label} color="gray.400">{label}</Th>)}
                     </Tr>
                 </Thead>
                 <Tbody maxH="300px" overflowY="scroll">

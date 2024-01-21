@@ -1,0 +1,235 @@
+{
+    "notice": [
+        {
+            "id": 1,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 1,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 2,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 3,
+            "id_categoria": 1,
+            "vc_titulo": "Teste2",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": false,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 4,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 5,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 6,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 7,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 8,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 9,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 10,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 11,
+            "id_categoria": 1,
+            "vc_titulo": "Teste",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "fl_quantidade": 5,
+            "ch_unidade": "KG",
+            "vl_preco": 1050.50,
+            "vc_situacaoAnuncio": "Ativo",
+            "bo_ativo": true,
+            "vc_situacaoProduto": "Novo",
+            "details": [
+                {
+                    "id_detalheTroca": 1,
+                    "vc_titulo": "Detalhe1",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                }
+            ]
+        }
+    ]
+}
