@@ -231,5 +231,20 @@
                 }
             ]
         }
+    ],
+    "users": [
+        {
+            "id": "rfusco",
+            "vc_nome": "Raphael Alexandre Fusco",
+            "vc_cidade": "Mandaguari",
+            "vc_estado": "Paraná",
+            "qt_trocasSucedidas": 24,
+            "qt_trocasRecebidas": 54,
+            "qt_trocasAceitas": 12,
+            "qt_trocasRecusadas": 24,
+            "qt_trocasEnviadas": 6,
+            "tx_avaliacaoGeral": 80,
+            "bo_seloAtivo": true
+        }
     ]
 }

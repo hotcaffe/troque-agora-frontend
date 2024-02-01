@@ -4,8 +4,11 @@ import { TAIconNoBG } from "@/config/icons";
 import { Button, Center, Flex, HStack, Icon, Input, InputGroup, InputLeftElement, Link, Text } from "@chakra-ui/react";
 import {Bell, MessageCircle, Search, User} from 'react-feather'
 import { InteractionIcon } from "../common/InteractionIcon";
+import { usePathname } from "next/navigation";
 
 export function Header() {
+    const pathname = usePathname();
+
     return (
         <Flex w="100%" h="80px" bg="white" justify="center" align="center" gap="40px" px="20px" mb="20px">
             <Link href="/" textDecoration="none" _hover={{textDecoration: "none"}}>
@@ -21,9 +24,9 @@ export function Header() {
                 <Input placeholder="Pesquisar por trocas..." />
             </InputGroup>
             <HStack gap="20px">
-                <InteractionIcon as={Bell}/>
+                <InteractionIcon as={Bell} />
                 <InteractionIcon as={MessageCircle}/>
-                <Link href="/perfil"><InteractionIcon as={User} /></Link>
+                <Link href="/perfil" ><InteractionIcon as={User} color={pathname == "/perfil" ? "teal.300" : "gray.400"}/></Link>
             </HStack>
             <Link href="/anuncio"><Button minW="80px">Anunciar</Button></Link>
         </Flex>

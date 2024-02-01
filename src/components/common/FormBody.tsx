@@ -14,7 +14,7 @@ export function FormBody({children, title, titleDivider, column, gap, ...rest}: 
             <Heading fontSize="lg" color="teal.700" fontWeight="semibold" w="100%" mb="4px">
                 {title}
             </Heading>
-            {titleDivider && <Divider borderWidth="2px" borderColor="teal.300" my="10px"/>}
+            {titleDivider && <Divider borderWidth="2px" borderColor="teal.300" my="10px" opacity={1}/>}
             <Flex w="100%" wrap="wrap" gap={gap ? gap : "10px"} align="flex-start" direction={column ? "column" : "row"}>
                 {children}
             </Flex>

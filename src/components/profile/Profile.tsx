@@ -128,7 +128,7 @@ export function Profile({userData}: IProfile) {
                 </FormInput>
                 <FormInput error={errors.tx_avaliacaoGeral} title='Avaliação geral do anunciante:'>
                     <HStack gap="20px">
-                        <Progress value={70} w="400px" rounded="5px" colorScheme="teal" h="15px" bg="gray.200"/>
+                        <Progress value={userData.tx_avaliacaoGeral} w="400px" rounded="5px" colorScheme="teal" h="15px" bg="gray.200"/>
                         <Text color="teal.300" fontWeight="semibold">{userData.tx_avaliacaoGeral}%</Text>
                     </HStack>
                 </FormInput>
