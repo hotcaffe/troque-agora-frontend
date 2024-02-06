@@ -25,7 +25,7 @@ export function Header() {
             </InputGroup>
             <HStack gap="20px">
                 <InteractionIcon as={Bell} />
-                <InteractionIcon as={MessageCircle}/>
+                <Link href="/conversas" ><InteractionIcon as={MessageCircle} color={pathname == "/conversas" ? "teal.300" : "gray.400"}/></Link>
                 <Link href="/perfil" ><InteractionIcon as={User} color={pathname == "/perfil" ? "teal.300" : "gray.400"}/></Link>
             </HStack>
             <Link href="/anuncio"><Button minW="80px">Anunciar</Button></Link>

@@ -246,5 +246,94 @@
             "tx_avaliacaoGeral": 80,
             "bo_seloAtivo": true
         }
+    ],
+    "chat": [
+        {
+            "id": "rfusco",
+            "conversations": [
+                {
+                    "user": "Fulano Dalbem",
+                    "messages": [
+                        {
+                            "date": "10/12/2023 23:02:00",
+                            "content": "Bom dia, tudo bem? 1"
+                        },
+                        {
+                            "date": "10/12/2023 23:02:01",
+                            "content": "Consegue verificar isso ai pra mim?"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:04:32",
+                            "content": "Vou verificar isso ai para você, ok?"
+                        },
+                        {
+                            "date": "10/12/2023 23:04:35",
+                            "content": "Ok"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:08:32",
+                            "content": "Boa noite, verificado!"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:12:32",
+                            "content": "Peço que olhe o anúncio novamente. Verifique sua caixa de mensagens mais tarde também!"
+                        },
+                        {
+                            "date": "10/12/2023 23:15:21",
+                            "content": "Deu certo aqui, cara."
+                        },
+                        {
+                            "date": "10/12/2023 23:15:50",
+                            "content": "Muito obrigado!"
+                        },
+                        {
+                            "owner": true,
+                            "date": "11/12/2023 08:15:21",
+                            "content": "Que bom que deu certo!"
+                        },
+                        {
+                            "owner": true,
+                            "date": "11/12/2023 08:16:05",
+                            "content": "Peço que verifique os outros anúncios, caso se interesse!!"
+                        }
+                    ]
+                },
+                {
+                    "user": "Ciclano Pereira",
+                    "messages": [
+                        {
+                            "date": "10/12/2023 23:02:00",
+                            "content": "Bom dia, tudo bem? 2"
+                        },
+                        {
+                            "date": "10/12/2023 23:02:00",
+                            "content": "Consegue verificar isso ai pra mim? 2"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:04:32",
+                            "content": "Vou verificar isso ai para você, ok? 2"
+                        },
+                        {
+                            "date": "10/12/2023 23:04:32",
+                            "content": "Ok? 2"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:04:32",
+                            "content": "Boa noite, verificado! 2"
+                        },
+                        {
+                            "owner": true,
+                            "date": "10/12/2023 23:04:32",
+                            "content": "Peço que olhe o anúncio novamente. 2"
+                        }
+                    ]
+                }
+            ]
+        }
     ]
 }
