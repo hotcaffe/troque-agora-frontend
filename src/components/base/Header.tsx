@@ -4,10 +4,12 @@ import { TAIconNoBG } from "@/config/icons";
 import { Button, Center, Flex, HStack, Icon, Input, InputGroup, InputLeftElement, Link, Text } from "@chakra-ui/react";
 import {Bell, HelpCircle, MessageCircle, Search, User} from 'react-feather'
 import { InteractionIcon } from "../common/InteractionIcon";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export function Header() {
     const pathname = usePathname();
+    const params = useSearchParams();
+    const search = params.get('search')
 
     return (
         <Flex w="100%" h="80px" bg="white" justify="center" align="center" gap="40px" px="20px" mb="20px">
@@ -17,11 +19,12 @@ export function Header() {
                     <Text color="teal.800" fontSize="7px" fontWeight="bold">TROQUE AGORA</Text>
                 </Center>
             </Link>
-            <InputGroup minW="300px" maxW="600px" >
+            <InputGroup minW="300px" maxW="600px" as='form'>
                 <InputLeftElement color="gray.400">
                     <Icon as={Search}/>
                 </InputLeftElement>
-                <Input placeholder="Pesquisar por trocas..." />
+                <Input defaultValue={search || ''} name="search" placeholder="Pesquisar por trocas..." />
+                <Button hidden type="submit"/>
             </InputGroup>
             <HStack gap="20px">
                 <Link href="/ajuda"><InteractionIcon as={HelpCircle} color={pathname == "/ajuda" ? "teal.300" : "gray.400"} mr="20px" aria-label="Preciso de ajuda"/></Link>

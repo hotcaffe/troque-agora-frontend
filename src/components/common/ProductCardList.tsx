@@ -28,7 +28,8 @@ export function ProductCardList({filters, ...rest}: IProductCardList) {
         const search = params.get('search')
         return await api.get('/notice', {
             params: {
-                id_categoria: filters?.id_categoria
+                id_categoria: filters?.id_categoria,
+                vc_titulo: search
             }
         }).then(res => res.data)
     }
