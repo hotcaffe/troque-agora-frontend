@@ -1,33 +1,47 @@
-import { Box, Center, Checkbox, Circle, Flex, FlexProps, Icon, Spinner, VStack, useToast } from "@chakra-ui/react";
+import { Box, Center, Checkbox, Circle, Flex, FlexProps, Icon, Input, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
 import { ProductCard } from "./ProductCard";
 import { useInfiniteQuery } from "react-query";
 import { IAnuncioTroca } from "@/interfaces/anuncioTroca";
 import { api } from "@/utils/api";
 import { useEffect, useState } from "react";;
 import { X, Check, Repeat } from "react-feather";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
+import { useForm, useWatch } from "react-hook-form";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ICategoria } from "@/interfaces/categoria";
 
 interface IProductCardList extends FlexProps {
     generalProposal?: boolean;
+    filters: ICategoria | undefined;
 }
 
-export function ProductCardList({...rest}: IProductCardList) {
+export function ProductCardList({filters, ...rest}: IProductCardList) {
     const toast = useToast();
     const router = useRouter();
-    const [filters, setFilters] = useState()
+    const params = useSearchParams();
     const [generalProposal, setGeneralProposal] = useState(false);
+    const [maxProposal, setMaxProposal] = useState(false);
+    
+    const {register, handleSubmit, control, reset} = useForm();
+    const watch = useWatch({control})
 
-    const {register, handleSubmit, formState} = useForm();
-
-    async function get(filters: any, pageParam: number): Promise<IAnuncioTroca[]> {
-        return await api.get('/notice').then(res => res.data)
+    async function get(filters?: ICategoria, pageParam?: number): Promise<IAnuncioTroca[]> {
+        const search = params.get('search')
+        return await api.get('/notice', {
+            params: {
+                id_categoria: filters?.id_categoria
+            }
+        }).then(res => res.data)
     }
 
-    function createProposal(notices: {[K: string]: boolean}) {
-        console.log(Object.entries(notices).filter(([key, value]) => value).map(notice => notice[0]))
-        const _notices = Object.entries(notices).filter(([key, value]) => value).map(notice => notice[0]);
-        router.push('/contra-proposta?notices=' + _notices.join(','))
+    function createProposal({notices}: {[K: string]: string[]}) {
+        if (notices.length <= 0) {
+            toast({
+                title: "Selecione ao menos um anúncio para oferecer sua contra-proposta!",
+                status: "info"
+            })
+            return;
+        }
+        router.push('/contra-proposta?notices=' + JSON.stringify(notices || '[]'))
     }
 
     const {data, isLoading} = useInfiniteQuery({
@@ -40,7 +54,12 @@ export function ProductCardList({...rest}: IProductCardList) {
             })
         }
     })
-    
+
+    useEffect(() => {
+        if (watch.notices && watch.notices.length >= 10) setMaxProposal(true)
+        else if (maxProposal && watch.notices.length < 10) setMaxProposal(false)
+    }, [watch])
+
     if (isLoading) 
         return (
             <Center w="100%" h="100%">
@@ -50,8 +69,14 @@ export function ProductCardList({...rest}: IProductCardList) {
 
     return (
         <Box as='form'>
+            {generalProposal && 
+                <Text mb="20px" color="teal.800" fontWeight="semibold">
+                    Selecione os anuncios que deseja atribuir sua contra-proposta geral ({watch?.notices ? watch.notices.length : "0"}/10)
+                </Text>
+            }
             <Flex {...rest} gap="10px" wrap="wrap" w="100%">
-                {data?.pages.map(products => 
+                {data?.pages[0].length ? 
+                data.pages.map(products => 
                     <>
                         {
                             products.map((product) => 
@@ -60,11 +85,14 @@ export function ProductCardList({...rest}: IProductCardList) {
                                     product={product}
                                     generalProposal={generalProposal}
                                     register={register}
+                                    maxProposal={maxProposal}
                                 />
                             )
                         }
                     </>
-                )}
+                ) :
+                <Text>Nenhum produto encontrado com estes parâmetros.</Text>
+                }
             </Flex>
             {generalProposal ? 
                 <VStack>
@@ -72,7 +100,7 @@ export function ProductCardList({...rest}: IProductCardList) {
                         position="fixed"
                         right="30px"
                         bottom="90px"
-                        onClick={() => setGeneralProposal(false)}
+                        onClick={() => {reset(); setGeneralProposal(false); setMaxProposal(false)}}
                         border="1px solid"
                         borderColor="red.300"
                     >

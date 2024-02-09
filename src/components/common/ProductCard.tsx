@@ -13,9 +13,10 @@ interface IProductCard {
     product: IAnuncioTroca;
     generalProposal?: boolean;
     register?: UseFormRegister<FieldValues>;
+    maxProposal?: boolean;
 }
 
-export function ProductCard({product, generalProposal, register}: IProductCard) {
+export function ProductCard({product, generalProposal, register, maxProposal}: IProductCard) {
     const router = useRouter();
     const [isSelected, setIsSelected] = useState(false);
 
@@ -49,21 +50,24 @@ export function ProductCard({product, generalProposal, register}: IProductCard) 
     if (isLoading) return <Skeleton w="165px" h="240px"/>
 
     return (
-         <Card w="165px" h="240px" bg="white" px="5px" py="10px" gap="5px" _hover={{filter: 'brightness(0.95)'}} cursor="pointer" justify="space-between"
+         <Card w="165px" h="240px" bg="white" px="5px" py="10px" gap="5px"  cursor="pointer" justify="space-between"
             onClick={() => !generalProposal && router.push('/produtos/' + `${product.id_anuncioTroca}-${product.id_usuarioAnuncio}`)}
             border={isSelected ? "2px solid" : "none"} 
             borderColor="teal.300" 
+            filter={(!isSelected && maxProposal) ? 'brightness(0.7)' : 'brightness(1)'}
+            _hover={(!isSelected && maxProposal) ? {} : {filter: 'brightness(0.95)'}}
          >
             {register && generalProposal &&
                 <Checkbox 
                     variant="absolute"
-                    {...register(`${product.id_anuncioTroca}-${product.id_usuarioAnuncio}`)}
-                    onChange={(e) => setIsSelected(e.target.checked)}
+                    {...register("notices", {onChange: (e) => setIsSelected(e.target.checked)})}
+                    value={`${product.id_anuncioTroca}-${product.id_usuarioAnuncio}`}
+                    isDisabled={!isSelected && maxProposal}
                 />
             }
             {generalProposal && <Circle size="20px" bg={isSelected ? "teal.300" : "gray.100"} outline="3px solid" outlineOffset="-3px" outlineColor={isSelected ? "teal.300" : "gray.200"} right="5px" top="5px" position="absolute"/>}
             <Image 
-                src={data?.images[0]}
+                src={data?.images && data?.images[0]}
                 alt={product.vc_titulo}
                 borderRadius='lg'
                 bg="gray.50"

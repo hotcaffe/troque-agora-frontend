@@ -24,6 +24,7 @@ interface IProposal {
 export function Proposal({setProposal}: IProposal) {
     const [proposalList, setProposalList] = useState<IProposalItem[]>([]);
     const params = useSearchParams();
+    const router = useRouter()
 
     const {register, handleSubmit, formState} = useForm<{vc_titulo: string, vc_descricao: string}>({
         mode: 'all',
@@ -37,12 +38,14 @@ export function Proposal({setProposal}: IProposal) {
     }
 
     async function onSumbit(data: {vc_titulo: string, vc_descricao: string}) {
-        const notices = params.get('notices')?.split(',')?.map(notice => {
+        const query = JSON.parse(params.get('notices') || '[]') as string[];
+        const notices = query?.map(notice => {
             const [id_anuncioTroca, id_usuarioAnuncio] = notice.split('-');
             return {id_anuncioTroca, id_usuarioAnuncio}
         });
-        console.log(notices)
 
+        console.log(notices)
+        
         console.log({
             ...data,
             itemList: proposalList
