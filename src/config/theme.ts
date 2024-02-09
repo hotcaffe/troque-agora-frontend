@@ -72,6 +72,23 @@ export const theme = extendTheme({
                 },
                 label: {
                     color: "teal.800"
+                },
+            },
+            variants: {
+                absolute: {
+                    control: {
+                        display: 'none'
+                    },
+                    icon: {
+                        display: 'none'
+                    },
+                    container: {
+                        width: "100%",
+                        height: "100%",
+                        position: "absolute",
+                        top: "0px",
+                        left: "0px"
+                    },
                 }
             }
         },

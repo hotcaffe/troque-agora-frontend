@@ -1,4 +1,4 @@
-import { Divider, Flex, HStack, Heading, Image, ListItem, Progress, Square, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import { Box, Divider, Flex, HStack, Heading, Image, ListItem, Progress, Square, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, UnorderedList, VStack } from "@chakra-ui/react";
 import { NoticeMiniaturePreview } from "./NoticeMiniaturePreview";
 import { useState } from "react";
 import { ZoomImageCard } from "../common/ZoomImageCard";
@@ -13,11 +13,10 @@ interface INoticeCard {
     advertiserChanges: number;
     advertiserReceivedChanges: number;
     advertiserRate: number;
-    topicList: string[];
     imageList: string[];
 }
 
-export function NoticeCard({title, description, noticeTotalValue, noticeUnit, noticeQuantity, advertiserChanges, advertiserReceivedChanges, advertiserRate, topicList, imageList}: INoticeCard) {
+export function NoticeCard({title, description, noticeTotalValue, noticeUnit, noticeQuantity, advertiserChanges, advertiserReceivedChanges, advertiserRate, imageList}: INoticeCard) {
     const [selectedImage, setSelectedImage] = useState(imageList[0]);
 
     return (
@@ -34,10 +33,10 @@ export function NoticeCard({title, description, noticeTotalValue, noticeUnit, no
             </VStack>
             <VStack gap="10px" align="start" ml="10px">
                 <Heading fontSize="20px">{title}</Heading>
-                <Text fontSize="12px">{description}</Text>
-                <UnorderedList fontSize="12px">
+                <Text fontSize="12px" whiteSpace="pre-wrap" minH="180px">{description}</Text>
+                {/* <UnorderedList fontSize="12px">
                     {topicList.slice(0, 6).map((topic, index) => <ListItem key={topic + index}>{topic}</ListItem>)}
-                </UnorderedList>
+                </UnorderedList> */}
                 <Divider borderWidth="2px"/>
                 <Stat>
                     <StatLabel>Valor a negociar:</StatLabel>

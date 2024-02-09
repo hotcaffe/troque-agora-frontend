@@ -3,9 +3,13 @@ import { ProductCardList } from "@/components/common/ProductCardList";
 import { Notice } from "@/components/notice/Notice";
 import { NoticeCard } from "@/components/notice/NoticeCard";
 import { NoticeInterestsCard } from "@/components/notice/NoticeInterestsCard";
+import { IUserData, IUserReview } from "@/components/profile/interface/profile";
 import { Proposal } from "@/components/proposal/Proposal";
-import { Avatar, AvatarBadge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Divider, Flex, HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { IAnuncioTroca } from "@/interfaces/anuncioTroca";
+import { api } from "@/utils/api";
+import { Avatar, AvatarBadge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Divider, Flex, HStack, Skeleton, Stack, Text, VStack, useToast } from "@chakra-ui/react";
 import { useState } from "react";
+import { useInfiniteQuery, useQuery } from "react-query";
 
 const product = {
     id: 1,
@@ -16,8 +20,50 @@ const product = {
 }
 const products = Array(10).fill(product).map((el, index) => ({...el, id: index}))
 
-export default function Page({params}: {params: {slug: number}}) {
+export default function Page({params}: {params: {slug: string}}) {
+    console.log(params)
     const [proposal, setProposal] = useState(false);
+
+    const toast = useToast();
+
+    async function get() {
+        const [id_anuncioTroca, id_usuarioAnuncio] = params.slug.split('-')
+        
+        const notice = await api.get('/notice', {
+            params: {
+                id_anuncioTroca,
+                id_usuarioAnuncio
+            }
+        }).then(res => res.data[0])
+
+        const images = await api.get('/images', {
+            params: {
+                id_usuarioAnuncio: id_usuarioAnuncio,
+                id_anuncioTroca: id_anuncioTroca,
+            }
+        }).then(res => res.data).then(array => array[0]?.imageList);
+
+        const userData = await api.get('/users/' + id_usuarioAnuncio).then(res => res.data) as IUserData;
+
+        return {notice, images, userData}
+    }
+
+    const {data, isLoading} = useQuery(['notices', params.slug], get,
+        {
+            onError: (err: any) => {
+                toast({
+                    description: "Erro ao carregar anúncio para edição",
+                    status: "error"
+                })
+            }
+        }
+    ) 
+
+    if (isLoading || !data) {
+        return (
+            <Skeleton />
+        )
+    }
 
     return (
         <VStack w="fit-content" m="auto" gap="15px">
@@ -52,10 +98,10 @@ export default function Page({params}: {params: {slug: number}}) {
                 </Breadcrumb>
             </HStack>
             <Divider borderWidth="2px" borderColor="white"/>
-            {proposal ? <Proposal setProposal={setProposal}/> : <Notice setProposal={setProposal}/>}
+            {proposal ? <Proposal setProposal={setProposal}/> : <Notice setProposal={setProposal} notice={data.notice} userData={data.userData} images={data.images}/>}
             <VStack w="fit-content" align="start" mt="40px" gap="20px">
                 <Text fontWeight="semibold" color="teal.800">Outros anúncios semelhantes:</Text>
-                <ProductCardList products={products} maxW="1050px"/>
+                <ProductCardList maxW="1050px"/>
             </VStack>
         </VStack>
     )

@@ -2,7 +2,7 @@
 
 import { TAIconNoBG } from "@/config/icons";
 import { Button, Center, Flex, HStack, Icon, Input, InputGroup, InputLeftElement, Link, Text } from "@chakra-ui/react";
-import {Bell, MessageCircle, Search, User} from 'react-feather'
+import {Bell, HelpCircle, MessageCircle, Search, User} from 'react-feather'
 import { InteractionIcon } from "../common/InteractionIcon";
 import { usePathname } from "next/navigation";
 
@@ -24,9 +24,10 @@ export function Header() {
                 <Input placeholder="Pesquisar por trocas..." />
             </InputGroup>
             <HStack gap="20px">
-                <InteractionIcon as={Bell} />
-                <Link href="/conversas" ><InteractionIcon as={MessageCircle} color={pathname == "/conversas" ? "teal.300" : "gray.400"}/></Link>
-                <Link href="/perfil" ><InteractionIcon as={User} color={pathname == "/perfil" ? "teal.300" : "gray.400"}/></Link>
+                <Link href="/ajuda"><InteractionIcon as={HelpCircle} color={pathname == "/ajuda" ? "teal.300" : "gray.400"} mr="20px" aria-label="Preciso de ajuda"/></Link>
+                {/* <InteractionIcon as={Bell} /> */}
+                <Link href="/conversas"><InteractionIcon as={MessageCircle} color={pathname == "/conversas" ? "teal.300" : "gray.400"} aria-label="Acessar conversas"/></Link>
+                <Link href="/perfil"><InteractionIcon as={User} color={pathname == "/perfil" ? "teal.300" : "gray.400"} aria-label="Acessar meu perfil"/></Link>
             </HStack>
             <Link href="/anuncio"><Button minW="80px">Anunciar</Button></Link>
         </Flex>

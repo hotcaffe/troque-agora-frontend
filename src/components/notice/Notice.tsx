@@ -2,6 +2,8 @@ import { Avatar, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { NoticeCard } from "./NoticeCard";
 import { NoticeInterestsCard } from "./NoticeInterestsCard";
 import { Dispatch, SetStateAction } from "react";
+import { INoticeData } from "./interfaces/notice";
+import { IUserData } from "../profile/interface/profile";
 
 const noticeData = {
     title: "Lorem ipsum dolor sit amet, sed do eiusmod tempor", 
@@ -60,9 +62,13 @@ const user = {
 
 interface INotice {
     setProposal: Dispatch<SetStateAction<boolean>>;
+    notice: INoticeData;
+    images: string[];
+    userData: IUserData;
 }
 
-export function Notice({setProposal}: INotice) {
+export function Notice({setProposal, notice, images, userData}: INotice) {
+    console.log(notice)
     return (
         <>
             <HStack gap="10px" w="100%">
@@ -74,18 +80,17 @@ export function Notice({setProposal}: INotice) {
             </HStack>
             <Flex gap="10px">
                 <NoticeCard 
-                    title={noticeData.title} 
-                    description={noticeData.description} 
-                    noticeTotalValue={noticeData.noticeTotalValue}
-                    noticeUnit={noticeData.noticeUnit}
-                    noticeQuantity={noticeData.noticeQuantity}
-                    advertiserChanges={noticeData.advertiserChanges}
-                    advertiserReceivedChanges={noticeData.advertiserReceivedChanges}
-                    advertiserRate={noticeData.advertiserRate}
-                    topicList={noticeData.topicList}
-                    imageList={noticeData.imageList}
+                    title={notice.vc_titulo} 
+                    description={notice.vc_descricao} 
+                    noticeTotalValue={notice.vl_preco}
+                    noticeUnit={notice.ch_unidade}
+                    noticeQuantity={notice.fl_quantidade}
+                    advertiserChanges={userData.qt_trocasSucedidas}
+                    advertiserReceivedChanges={userData.qt_trocasRecebidas}
+                    advertiserRate={userData.tx_avaliacaoGeral}
+                    imageList={images}
                 />
-                <NoticeInterestsCard interestList={interestsData} setProposal={setProposal}/>
+                <NoticeInterestsCard interestList={notice.detalheTroca} setProposal={setProposal}/>
             </Flex>
         </>
     )

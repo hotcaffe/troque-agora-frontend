@@ -1,11 +1,9 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Button, Divider, Heading, VStack } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
+import { INoticeDetails } from "./interfaces/notice";
 
 interface INoticeInterestCard {
-    interestList: {
-        title: string;
-        description: string;
-    }[]
+    interestList: INoticeDetails[]
     setProposal: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -15,12 +13,12 @@ export function NoticeInterestsCard({interestList, setProposal}: INoticeInterest
             <VStack p="10px" w="100%">
                 <Heading mb="20px" fontSize="18px" fontWeight="regular" color="gray.400">Interesses do anunciante:</Heading>
                 <Accordion w="100%" p="5px" maxH="400px" overflowY="scroll" allowMultiple>
-                    {interestList.map((interest, index) => (
-                        <AccordionItem key={interest.title + index} rounded="10px" shadow="md" border="none" mb="10px">
-                            <AccordionButton fontSize="16px" rounded="10px">{interest.title}</AccordionButton>
+                    {interestList?.map((interest, index) => (
+                        <AccordionItem key={interest.id_detalheTroca} rounded="10px" shadow="md" border="none" mb="10px">
+                            <AccordionButton fontSize="16px" rounded="10px">{interest.vc_titulo}</AccordionButton>
                             <AccordionPanel fontSize="12px">
                                 <Divider borderWidth="2px" mb="10px"/>
-                                {interest.description}
+                                {interest.vc_conteudo}
                             </AccordionPanel>
                         </AccordionItem>
                     ))}

@@ -1,4 +1,4 @@
-import { Flex, FormControl, FormLabel, Input, Button, FormErrorMessage } from "@chakra-ui/react";
+import { Flex, FormControl, FormLabel, Input, Button, FormErrorMessage, Box } from "@chakra-ui/react";
 import { FormBody } from "../common/FormBody";
 import { Dispatch, SetStateAction } from "react";
 import { IProposalItem } from "./interfaces/proposal";

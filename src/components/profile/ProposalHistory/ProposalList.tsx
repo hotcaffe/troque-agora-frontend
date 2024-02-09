@@ -31,7 +31,7 @@ export function ProposalList({title, list}: IProposalList) {
                 <Checkbox fontSize="10px" onChange={(e) => setShowCanceled(e.target?.checked)}>Mostrar canceladas?</Checkbox>
             </VStack>
             <Divider borderColor="teal.300" w="100%" borderWidth="2px" opacity={1}/>
-            <VStack mt="10px" overflowY="scroll" p="5px" maxH="780px" gap="15px">
+            <VStack mt="10px" overflowY="scroll" p="5px" maxH="780px" gap="15px" pr="15px">
                 {(showCanceled ? stateList : stateList.filter(proposal => proposal.bo_ativo)).map(proposal => (
                     <ProposalCard key={`${proposal.id_usuarioProposta}-${proposal.id_propostaTroca}`} data={proposal}/>
                 ))}

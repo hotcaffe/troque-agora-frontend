@@ -10,6 +10,7 @@ import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInput } from "../common/FormInput";
 import { SimpleStateList } from "../common/SimpleStateList";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 
 const schema = Yup.object().shape({
     vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(128, "Maxímo de 64 caracteres").required("Campo obrigatório"),
@@ -22,6 +23,7 @@ interface IProposal {
 
 export function Proposal({setProposal}: IProposal) {
     const [proposalList, setProposalList] = useState<IProposalItem[]>([]);
+    const params = useSearchParams();
 
     const {register, handleSubmit, formState} = useForm<{vc_titulo: string, vc_descricao: string}>({
         mode: 'all',
@@ -34,7 +36,13 @@ export function Proposal({setProposal}: IProposal) {
         setProposalList(proposalList => [...proposalList.filter((_, subIndex) => subIndex != index)])
     }
 
-    function onSumbit(data: {vc_titulo: string, vc_descricao: string}) {
+    async function onSumbit(data: {vc_titulo: string, vc_descricao: string}) {
+        const notices = params.get('notices')?.split(',')?.map(notice => {
+            const [id_anuncioTroca, id_usuarioAnuncio] = notice.split('-');
+            return {id_anuncioTroca, id_usuarioAnuncio}
+        });
+        console.log(notices)
+
         console.log({
             ...data,
             itemList: proposalList
@@ -82,7 +90,7 @@ export function Proposal({setProposal}: IProposal) {
             <Flex w="100%" justify="end">
                 <ButtonGroup>
                     <Button variant="inverse" w="100px" onClick={() => setProposal(false)}>Cancelar</Button>
-                    <Button w="100px" onClick={handleSubmit(onSumbit, () => console.log(errors))}>Finalizar</Button>
+                    <Button w="100px" onClick={handleSubmit(onSumbit, () => console.log(errors, params.get('notices')))}>Finalizar</Button>
                 </ButtonGroup>
             </Flex>
         </VStack>

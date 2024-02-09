@@ -26,4 +26,6 @@ interface IUserReview {
     bo_seloAtivo: boolean
 }
 
-export {IUserAddress, IUserProfile, IUserReview}
+interface IUserData extends IUserAddress, IUserProfile, IUserReview {}
+
+export {IUserAddress, IUserProfile, IUserReview, IUserData}

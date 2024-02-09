@@ -34,7 +34,7 @@ interface INoticeForm {
 }
 
 export function NoticeForm({title, data}: INoticeForm) {
-    const [detailList, setDetailList] = useState<INoticeDetails[]>(data?.details ? [...data.details] : [])
+    const [detailList, setDetailList] = useState<INoticeDetails[]>(data?.detalheTroca ? [...data.detalheTroca] : [])
     const {register, handleSubmit, formState} = useForm<INotice>({
         mode: 'all',
         resolver: yupResolver(schema)

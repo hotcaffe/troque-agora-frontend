@@ -6,18 +6,28 @@
             "id_anuncioTroca": 1,
             "id_categoria": 1,
             "vc_titulo": "Teste",
-            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor: \n - Sed do eiusmod tempor ipsum dolor sit amet \n - Consectetur adipiscing elit \n - Sed do eiusmod tempor \n - Consectetur adipiscing elit \n - Lorem ipsum dolor sit amet \n - Sed do eiusmod tempor",
             "fl_quantidade": 5,
             "ch_unidade": "KG",
             "vl_preco": 1050.50,
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -34,11 +44,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -55,11 +75,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": false,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -76,11 +106,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -97,11 +137,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -118,11 +168,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -139,11 +199,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -160,11 +230,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -181,11 +261,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -202,11 +292,21 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         },
@@ -223,18 +323,29 @@
             "vc_situacaoAnuncio": "Ativo",
             "bo_ativo": true,
             "vc_situacaoProduto": "Novo",
-            "details": [
+            "detalheTroca": [
                 {
                     "id_detalheTroca": 1,
-                    "vc_titulo": "Detalhe1",
-                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet"
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 2,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
+                },
+                {
+                    "id_detalheTroca": 3,
+                    "vc_titulo": "Lorem ipsum dolor",
+                    "vc_conteudo": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor"
                 }
             ]
         }
     ],
     "users": [
         {
-            "id": "rfusco",
+            "id": 1,
+            "id_usuario": 1,
             "vc_nome": "Raphael Alexandre Fusco",
             "vc_cidade": "Mandaguari",
             "vc_estado": "Paraná",
@@ -334,6 +445,178 @@
                     ]
                 }
             ]
+        }
+    ],
+    "images": [
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 1,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        },
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 2,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        },
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 3,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        },
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 4,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        },
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 5,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        },
+        {
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 6,
+            "imageList": [
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1525609004556-c46c7d6cf023?q=80&w=1937&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                "https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            ]
+        }
+    ],
+    "categories": [
+        {   
+            "id": 1,
+            "id_categoria": 1,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 2,
+            "id_categoria": 2,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 3,
+            "id_categoria": 3,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 4,
+            "id_categoria": 4,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 5,
+            "id_categoria": 5,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 6,
+            "id_categoria": 6,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 7,
+            "id_categoria": 7,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 8,
+            "id_categoria": 8,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 9,
+            "id_categoria": 9,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        },
+        {   
+            "id": 10,
+            "id_categoria": 10,
+            "vc_titulo": "Carros",
+            "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
         }
     ]
 }

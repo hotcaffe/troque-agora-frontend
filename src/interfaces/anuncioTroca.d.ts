@@ -1,4 +1,4 @@
-interface INotice {
+export interface IAnuncioTroca {
     id_usuarioAnuncio: number;
     id_anuncioTroca: number;
     id_categoria: number;
@@ -11,15 +11,3 @@ interface INotice {
     bo_ativo: boolean;
     vc_situacaoAnuncio: string;
 }
-
-interface INoticeDetails {
-    id_detalheTroca: number;
-    vc_titulo: string;
-    vc_conteudo: string;
-}
-
-interface INoticeData extends INotice {
-    detalheTroca: INoticeDetails[]
-}
-
-export {INotice, INoticeDetails, INoticeData}
