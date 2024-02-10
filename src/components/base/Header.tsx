@@ -2,9 +2,9 @@
 
 import { TAIconNoBG } from "@/config/icons";
 import { Button, Center, Flex, HStack, Icon, Input, InputGroup, InputLeftElement, Link, Text } from "@chakra-ui/react";
-import {Bell, HelpCircle, MessageCircle, Search, User} from 'react-feather'
+import { HelpCircle, MessageCircle, Search, User} from 'react-feather'
 import { InteractionIcon } from "../common/InteractionIcon";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export function Header() {
     const pathname = usePathname();

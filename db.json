@@ -342,20 +342,1136 @@
             ]
         }
     ],
-    "users": [
+    "proposal": [
         {
-            "id": 1,
-            "id_usuario": 1,
-            "vc_nome": "Raphael Alexandre Fusco",
-            "vc_cidade": "Mandaguari",
-            "vc_estado": "Paraná",
-            "qt_trocasSucedidas": 24,
-            "qt_trocasRecebidas": 54,
-            "qt_trocasAceitas": 12,
-            "qt_trocasRecusadas": 24,
-            "qt_trocasEnviadas": 6,
-            "tx_avaliacaoGeral": 80,
-            "bo_seloAtivo": true
+            "id_propostaTroca": 1,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem ipsum dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 2,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem bla dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": false,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 3,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem blow dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 4,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem blew dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 5,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem hope dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 6,
+            "id_usuarioProposta": 1,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 1,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 2,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 3,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 4,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 5,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        },
+        {
+            "id_propostaTroca": 6,
+            "id_usuarioProposta": 2,
+            "vc_titulo": "Lorem tinus dolor",
+            "vc_descricao": "Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor sed do eiusmod tempor",
+            "bo_ativo": true,
+            "itemProposta": [
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 1,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 2,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 3,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 4,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 5,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 6,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                },
+                {
+                    "id_propostaTroca": 1,
+                    "id_usuarioProposta": 1,
+                    "id_detalheProposta": 7,
+                    "vc_itemTitulo": "Teste1",
+                    "vc_descricao": "Teste teste teste",
+                    "ch_unidade": "KG",
+                    "fl_quantidade": 30,
+                    "id_categoria": 1,
+                    "vc_situacaoProduto": "Novo"
+                }
+            ]
+        }
+    ],
+    "notice-proposal": [
+        {
+            "id_propostaAnuncio": 1,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 1,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 1,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 2,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 2,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 2,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 3,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 3,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 3,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 4,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 4,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 4,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 5,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 5,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 5,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 6,
+            "id_usuarioAnuncio": 2,
+            "id_anuncioTroca": 6,
+            "id_usuarioProposta": 1,
+            "id_propostaTroca": 6,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 7,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 1,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 1,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 8,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 2,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 2,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 9,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 3,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 3,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 10,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 4,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 4,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 11,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 5,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 5,
+            "vc_status": "Ativo"
+        },
+        {
+            "id_propostaAnuncio": 12,
+            "id_usuarioAnuncio": 1,
+            "id_anuncioTroca": 6,
+            "id_usuarioProposta": 2,
+            "id_propostaTroca": 6,
+            "vc_status": "Ativo"
         }
     ],
     "chat": [
@@ -707,6 +1823,35 @@
             "id_categoria": 10,
             "vc_titulo": "Carros",
             "vc_descricao": "Categoria que define carros/veículos/automóveis terrestres de todos os tipos"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "id_usuario": 1,
+            "vc_nome": "Raphael Alexandre Fusco",
+            "in_cpf": 11111111130,
+            "in_celular": 44999998888,
+            "in_idade": 22,
+            "vc_email": "raphaelfusco@gmail.com",
+            "bo_ativo": true,
+            "enderecoUsuario": {
+                "vc_lougradouro": "Rua teste dos testes",
+                "in_numero": 9999,
+                "vc_complemento": "Em frente ao tal",
+                "vc_bairro": "Centro",
+                "vc_cidade": "Mandaguari",
+                "vc_estado": "Paraná"
+            },
+            "avaliacaoUsuario": {
+                "qt_trocasSucedidas": 1320,
+                "qt_trocasRecebidas": 23320,
+                "qt_trocasAceitas": 1500,
+                "qt_trocasRecusadas": 21815,
+                "qt_trocasEnviadas": 5,
+                "tx_avaliacaoGeral": 75,
+                "bo_seloAtivo": true
+            }
         }
     ]
 }

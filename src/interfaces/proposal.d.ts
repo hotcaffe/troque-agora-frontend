@@ -22,4 +22,13 @@ interface IProposalData extends IProposal {
     items: IProposalItem[]
 }
 
-export {IProposal, IProposalItem, IProposalData}
+interface INoticeProposal {
+    id_propostaAnuncio: number;
+    id_usuarioAnuncio: number;
+    id_anuncioTroca: number;
+    id_usuarioProposta: number;
+    id_propostaTroca: number;
+    vc_status: string;
+}
+
+export {IProposal, IProposalItem, IProposalData, INoticeProposal}

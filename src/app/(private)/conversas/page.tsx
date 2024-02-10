@@ -2,9 +2,9 @@
 
 import { ChatBox } from "@/components/chat/ChatBox";
 import { api } from "@/utils/api";
-import { Avatar, Box, Center, Divider, Flex, HStack, Icon, IconButton, Input, InputGroup, InputLeftElement, InputRightElement, SkeletonCircle, SkeletonText, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Box, Center, Divider, HStack, Icon, Input, InputGroup, InputLeftElement, SkeletonCircle, SkeletonText, Text, VStack } from "@chakra-ui/react";
 import {  useState } from "react";
-import { Search, Send } from "react-feather";
+import { Search } from "react-feather";
 import { useQuery } from "react-query";
 
 export default function Page() {

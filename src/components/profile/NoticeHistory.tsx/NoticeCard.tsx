@@ -1,7 +1,7 @@
 import { GenericDialog } from "@/components/common/GenericDialog";
-import { INoticeData } from "@/components/notice/interfaces/notice";
+import { INoticeData } from "@/interfaces/notice";
 import { formatValue } from "@/utils/formatValue";
-import { Divider, HStack, Icon, ListItem, Text, Circle, VStack, IconButton, useDisclosure, Flex, Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
+import { Divider, HStack, Icon, Text, VStack, IconButton, useDisclosure, Flex, Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { Edit, Trash, X } from "react-feather";
 

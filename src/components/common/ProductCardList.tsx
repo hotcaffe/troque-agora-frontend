@@ -1,38 +1,28 @@
-import { Box, Center, Checkbox, Circle, Flex, FlexProps, Icon, Input, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
+import { Box, Center, Circle, Flex, FlexProps, Icon, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
 import { ProductCard } from "./ProductCard";
-import { useInfiniteQuery } from "react-query";
-import { IAnuncioTroca } from "@/interfaces/anuncioTroca";
-import { api } from "@/utils/api";
+import { InfiniteData } from "react-query";
+import { INotice } from "@/interfaces/notice";
 import { useEffect, useState } from "react";;
 import { X, Check, Repeat } from "react-feather";
 import { useForm, useWatch } from "react-hook-form";
-import { useRouter, useSearchParams } from "next/navigation";
-import { ICategoria } from "@/interfaces/categoria";
+import { useRouter } from "next/navigation";
+import { ICategory } from "@/interfaces/category";
 
 interface IProductCardList extends FlexProps {
-    generalProposal?: boolean;
-    filters: ICategoria | undefined;
+    data: InfiniteData<INotice[]> | undefined;
+    isLoading: boolean;
+    filters?: ICategory | undefined;
 }
 
-export function ProductCardList({filters, ...rest}: IProductCardList) {
+export function ProductCardList({data, isLoading, filters, ...rest}: IProductCardList) {
     const toast = useToast();
     const router = useRouter();
-    const params = useSearchParams();
+
     const [generalProposal, setGeneralProposal] = useState(false);
     const [maxProposal, setMaxProposal] = useState(false);
     
     const {register, handleSubmit, control, reset} = useForm();
     const watch = useWatch({control})
-
-    async function get(filters?: ICategoria, pageParam?: number): Promise<IAnuncioTroca[]> {
-        const search = params.get('search')
-        return await api.get('/notice', {
-            params: {
-                id_categoria: filters?.id_categoria,
-                vc_titulo: search
-            }
-        }).then(res => res.data)
-    }
 
     function createProposal({notices}: {[K: string]: string[]}) {
         if (notices.length <= 0) {
@@ -44,17 +34,6 @@ export function ProductCardList({filters, ...rest}: IProductCardList) {
         }
         router.push('/contra-proposta?notices=' + JSON.stringify(notices || '[]'))
     }
-
-    const {data, isLoading} = useInfiniteQuery({
-        queryKey: ['notices', filters],
-        queryFn: ({pageParam = 1}) => get(filters, pageParam),
-        onError: (err: any) => {
-            toast({
-                description: "Erro ao carregar anúncio para edição",
-                status: "error"
-            })
-        }
-    })
 
     useEffect(() => {
         if (watch.notices && watch.notices.length >= 10) setMaxProposal(true)

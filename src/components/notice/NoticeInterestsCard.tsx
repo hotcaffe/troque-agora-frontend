@@ -1,6 +1,6 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Button, Divider, Heading, VStack } from "@chakra-ui/react";
 import { Dispatch, SetStateAction } from "react";
-import { INoticeDetails } from "./interfaces/notice";
+import { INoticeDetails } from "../../interfaces/notice";
 
 interface INoticeInterestCard {
     interestList: INoticeDetails[]

@@ -1,16 +1,16 @@
-import { Box, Button, ButtonGroup, Center, Divider, Flex, FormControl, FormLabel, Icon, Input, Table, TableContainer, Tbody, Td, Text, Th, Thead, Tr, VStack } from "@chakra-ui/react";
+import { Button, ButtonGroup, Center, Divider, Flex, Input, Td, Text, Tr, VStack } from "@chakra-ui/react";
 import { FormBody } from "../common/FormBody";
 import { X } from "react-feather";
 import { InteractionIcon } from "../common/InteractionIcon";
 import { Dispatch, SetStateAction, useState } from "react";
-import { IProposalItem } from "./interfaces/proposal";
+import { IProposalItem } from "../../interfaces/proposal";
 import { ProposalItemForm } from "./ProposalItemForm";
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { FormInput } from "../common/FormInput";
 import { SimpleStateList } from "../common/SimpleStateList";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const schema = Yup.object().shape({
     vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(128, "Maxímo de 64 caracteres").required("Campo obrigatório"),

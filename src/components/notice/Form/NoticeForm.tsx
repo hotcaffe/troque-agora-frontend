@@ -6,7 +6,7 @@ import { FormInput } from "../../common/FormInput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup'
-import { INotice, INoticeData, INoticeDetails } from "../interfaces/notice";
+import { INotice, INoticeData, INoticeDetails } from "../../../interfaces/notice";
 import { AddNoticeItemForm } from "./NoticeItemForm";
 import { InteractionIcon } from "@/components/common/InteractionIcon";
 import { SimpleStateList } from "@/components/common/SimpleStateList";

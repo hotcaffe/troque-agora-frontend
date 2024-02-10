@@ -1,12 +1,10 @@
-import { Box, Center, Divider, Flex, HStack, Heading, Icon, IconButton, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
+import { Center, Divider, HStack, Heading, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
 import { NoticeList } from "./NoticeList";
-import { INoticeData } from "@/components/notice/interfaces/notice";
+import { INoticeData } from "@/interfaces/notice";
 import { useQuery } from "react-query";
-import axios from "axios";
 import { api } from "@/utils/api";
 import { RotateCw } from "react-feather";
 import { InteractionIcon } from "@/components/common/InteractionIcon";
-import { useEffect } from "react";
 
 export function NoticeHistory() {
     const toast = useToast();

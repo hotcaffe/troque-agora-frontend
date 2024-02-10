@@ -2,7 +2,7 @@ import { FormBody } from "@/components/common/FormBody";
 import { FormInput } from "@/components/common/FormInput";
 import { Box, Button, Flex, Input } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
-import { INoticeDetails } from "../interfaces/notice";
+import { INoticeDetails } from "../../../interfaces/notice";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup'
 import { Dispatch, SetStateAction } from "react";

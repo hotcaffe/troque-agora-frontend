@@ -1,4 +1,5 @@
 interface IUserAddress {
+    id_enderecoUsuarcio: number;
     vc_lougradouro: string;
     in_numero: number;
     vc_complemento: string;
@@ -8,6 +9,7 @@ interface IUserAddress {
 }
 
 interface IUserProfile {
+    id_usuario: number;
     vc_nome: string;
     in_cpf: number;
     in_celular: number;
@@ -26,6 +28,9 @@ interface IUserReview {
     bo_seloAtivo: boolean
 }
 
-interface IUserData extends IUserAddress, IUserProfile, IUserReview {}
+interface IUserData extends IUserProfile {
+    enderecoUsuario: IUserAddress;
+    avaliacaoUsuario: IUserReview 
+}
 
 export {IUserAddress, IUserProfile, IUserReview, IUserData}

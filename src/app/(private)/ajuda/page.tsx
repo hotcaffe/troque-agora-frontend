@@ -3,16 +3,11 @@
 import { FormBody } from "@/components/common/FormBody";
 import { FormInput } from "@/components/common/FormInput";
 import { MaskedInput } from "@/components/common/MaskedInput";
+import { ITicket } from "@/interfaces/ticket";
 import { Button, Center, HStack, Input, Text, Textarea, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
-
-interface ITicket {
-    vc_titulo: string;
-    vc_contato: number;
-    vc_descri: string;
-}
 
 const schema = Yup.object().shape({
     vc_titulo: Yup.string().min(6, 'O título deve ter no mínimo 6 caracteres').required('O título é obrigatório!'),

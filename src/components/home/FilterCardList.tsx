@@ -2,20 +2,20 @@ import { HStack, StackProps } from "@chakra-ui/react";
 import { FilterCard } from "./FilterCard";
 import { api } from "@/utils/api";
 import { Truck } from "react-feather";
-import { ICategoria } from "@/interfaces/categoria";
+import { ICategory } from "@/interfaces/category";
 import { useEffect, useState } from "react";
 
 interface IFilterCardList extends StackProps{
-    changeFilters: (filter: ICategoria) => void;
-    filters: ICategoria | undefined;
+    changeFilters: (filter: ICategory) => void;
+    filters: ICategory | undefined;
 }
 
-async function get(): Promise<ICategoria[]> {
+async function get(): Promise<ICategory[]> {
     return await api.get('/categories').then(res => res.data);
 }
 
 export function FilterCardList({changeFilters, filters, ...rest}: IFilterCardList) {
-    const [data, setData] = useState<ICategoria[]>([]);
+    const [data, setData] = useState<ICategory[]>([]);
     
     useEffect(() => {
         async function exec() {

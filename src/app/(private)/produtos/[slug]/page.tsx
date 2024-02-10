@@ -3,22 +3,13 @@ import { ProductCardList } from "@/components/common/ProductCardList";
 import { Notice } from "@/components/notice/Notice";
 import { NoticeCard } from "@/components/notice/NoticeCard";
 import { NoticeInterestsCard } from "@/components/notice/NoticeInterestsCard";
-import { IUserData, IUserReview } from "@/components/profile/interface/profile";
+import { IUserData, IUserReview } from "@/interfaces/profile";
 import { Proposal } from "@/components/proposal/Proposal";
-import { IAnuncioTroca } from "@/interfaces/anuncioTroca";
 import { api } from "@/utils/api";
 import { Avatar, AvatarBadge, Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Divider, Flex, HStack, Skeleton, Stack, Text, VStack, useToast } from "@chakra-ui/react";
 import { useState } from "react";
 import { useInfiniteQuery, useQuery } from "react-query";
-
-const product = {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=2072&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-    title: "Produto teste",
-    userPercentage: 78,
-    value: 2786.99
-}
-const products = Array(10).fill(product).map((el, index) => ({...el, id: index}))
+import { INotice, INoticeData } from "@/interfaces/notice";
 
 export default function Page({params}: {params: {slug: string}}) {
     console.log(params)
@@ -34,7 +25,7 @@ export default function Page({params}: {params: {slug: string}}) {
                 id_anuncioTroca,
                 id_usuarioAnuncio
             }
-        }).then(res => res.data[0])
+        }).then(res => res.data[0]) as INoticeData;
 
         const images = await api.get('/images', {
             params: {
@@ -58,6 +49,26 @@ export default function Page({params}: {params: {slug: string}}) {
             }
         }
     ) 
+
+    async function getList(pageParam?: number): Promise<INotice[]> {
+        console.log(data?.notice.id_categoria)
+        return await api.get('/notice', {
+            params: {
+                id_categoria: data?.notice.id_categoria,
+            }
+        }).then(res => res.data)
+    }
+
+    const {data: listData, isLoading: listIsLoading} = useInfiniteQuery({
+        queryKey: ['notices-list', data?.notice.id_categoria],
+        queryFn: ({pageParam = 1}) => getList(pageParam),
+        onError: (err: any) => {
+            toast({
+                description: "Erro ao carregar listagem de anúncios",
+                status: "error"
+            })
+        }
+    })
 
     if (isLoading || !data) {
         return (
@@ -99,9 +110,9 @@ export default function Page({params}: {params: {slug: string}}) {
             </HStack>
             <Divider borderWidth="2px" borderColor="white"/>
             {proposal ? <Proposal setProposal={setProposal}/> : <Notice setProposal={setProposal} notice={data.notice} userData={data.userData} images={data.images}/>}
-            <VStack w="fit-content" align="start" mt="40px" gap="20px">
+            <VStack align="start" mt="40px" gap="20px" w="100%">
                 <Text fontWeight="semibold" color="teal.800">Outros anúncios semelhantes:</Text>
-                <ProductCardList maxW="1050px"/>
+                <ProductCardList data={listData} isLoading={listIsLoading} maxW="1050px"/>
             </VStack>
         </VStack>
     )

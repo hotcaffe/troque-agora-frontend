@@ -1,4 +1,4 @@
-import { Box, Divider, Flex, HStack, Heading, Image, ListItem, Progress, Square, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import {  Divider, Flex, HStack, Heading, Progress, Square, Stat, StatArrow, StatHelpText, StatLabel, StatNumber, Text, VStack } from "@chakra-ui/react";
 import { NoticeMiniaturePreview } from "./NoticeMiniaturePreview";
 import { useState } from "react";
 import { ZoomImageCard } from "../common/ZoomImageCard";

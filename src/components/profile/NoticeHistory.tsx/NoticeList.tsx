@@ -1,5 +1,5 @@
-import { Checkbox, Divider, Flex, HStack, Heading, Icon, Input, InputGroup, InputLeftElement, Select, StackProps, Text, VStack } from "@chakra-ui/react";
-import { INoticeData } from "@/components/notice/interfaces/notice";
+import { Checkbox, Divider, Flex, HStack, Icon, Input, InputGroup, InputLeftElement, Select, VStack } from "@chakra-ui/react";
+import { INoticeData } from "@/interfaces/notice";
 import { Search } from "react-feather";
 import { NoticeCard } from "./NoticeCard";
 import { useRef, useState } from "react";

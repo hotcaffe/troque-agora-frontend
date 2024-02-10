@@ -1,7 +1,7 @@
 "use client"
 
 import { Proposal } from "@/components/proposal/Proposal";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Center, Divider, HStack, VStack } from "@chakra-ui/react";
+import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Divider, HStack, VStack } from "@chakra-ui/react";
 import { useState } from "react";
 
 export default function Page() {

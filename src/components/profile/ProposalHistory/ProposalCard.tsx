@@ -1,7 +1,7 @@
 import { GenericDialog } from "@/components/common/GenericDialog";
-import { IProposalData } from "@/components/proposal/interfaces/proposal";
-import { Divider, HStack, Icon, ListItem, Text, Circle, VStack, IconButton, useDisclosure } from "@chakra-ui/react";
-import { Edit, Trash, X } from "react-feather";
+import { IProposalData } from "@/interfaces/proposal";
+import { Divider, HStack, Icon,  Text, Circle, VStack, IconButton, useDisclosure } from "@chakra-ui/react";
+import { Trash } from "react-feather";
 
 interface IProposalCard {
     data: IProposalData
@@ -35,7 +35,7 @@ export function ProposalCard({data}: IProposalCard) {
             <Text noOfLines={3} fontSize="14px">{data.vc_descricao}</Text>
             <Divider borderWidth="2px" borderColor={data.bo_ativo ? "teal.600" : "red.600"} opacity={1}/>
             <HStack my="10px" w="100%" justify="space-between" >
-                {data.items.slice(0, 5).map((item) => (
+                {data.items?.slice(0, 5).map((item) => (
                     <HStack align="center">
                         <Circle size="6px" bg={data.bo_ativo ? "teal.800" : "red.800"}/>
                         <Text h="fit-content" key={item.id_detalheProposta} fontSize="12px">{item.vc_itemTitulo}</Text>

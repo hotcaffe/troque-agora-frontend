@@ -1,16 +1,15 @@
 import { formatValue } from "@/utils/formatValue";
-import { Card, CardFooter, CardProps, Checkbox, CheckboxProps, Circle, Divider, Image, Input, Skeleton, Text, VStack } from "@chakra-ui/react";
+import { Card, CardFooter, Checkbox, Circle, Divider, Image, Skeleton, Text, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import { INoticeData } from "../notice/interfaces/notice";
 import { useQuery } from "react-query";
 import { api } from "@/utils/api";
-import { IUserReview } from "../profile/interface/profile";
-import { IAnuncioTroca } from "@/interfaces/anuncioTroca";
+import { IUserData } from "../../interfaces/profile";
+import { INotice } from "@/interfaces/notice";
 import { useEffect, useState } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
 
 interface IProductCard {
-    product: IAnuncioTroca;
+    product: INotice;
     generalProposal?: boolean;
     register?: UseFormRegister<FieldValues>;
     maxProposal?: boolean;
@@ -33,7 +32,7 @@ export function ProductCard({product, generalProposal, register, maxProposal}: I
             }
         }).then(res => res.data).then(array => array[0]?.imageList);
 
-        const userData = await api.get('/users/' + id_usuarioAnuncio).then(res => res.data) as IUserReview;
+        const userData = await api.get('/users/' + id_usuarioAnuncio).then(res => res.data) as IUserData;
 
         return {
             images,
@@ -86,7 +85,7 @@ export function ProductCard({product, generalProposal, register, maxProposal}: I
                 <Divider orientation="vertical" h="30px" borderWidth="1px" borderColor="teal.800"/>
                 <VStack align="flex-end" gap="2px">
                     <Text fontSize="8px" color="gray.800" fontWeight="semibold">Avaliação</Text>
-                    <Text fontSize="14px" color="teal.300" fontWeight="semibold">{data?.userData?.tx_avaliacaoGeral}%</Text>
+                    <Text fontSize="14px" color="teal.300" fontWeight="semibold">{data?.userData?.avaliacaoUsuario.tx_avaliacaoGeral}%</Text>
                 </VStack>
             </CardFooter>
          </Card>

@@ -1,5 +1,5 @@
-import { Checkbox, Divider, HStack, Heading, Icon, Input, InputGroup, InputLeftElement, Text, VStack } from "@chakra-ui/react";
-import { IProposalData } from "@/components/proposal/interfaces/proposal";
+import { Checkbox, Divider, HStack, Icon, Input, InputGroup, InputLeftElement, Text, VStack } from "@chakra-ui/react";
+import { IProposalData } from "@/interfaces/proposal";
 import { Search } from "react-feather";
 import { ProposalCard } from "./ProposalCard";
 import { useState } from "react";

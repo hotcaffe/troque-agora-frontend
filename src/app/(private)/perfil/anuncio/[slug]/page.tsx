@@ -2,7 +2,7 @@
 
 import { InteractionIcon } from "@/components/common/InteractionIcon";
 import { NoticeForm } from "@/components/notice/Form/NoticeForm";
-import { INoticeData } from "@/components/notice/interfaces/notice";
+import { INoticeData } from "@/interfaces/notice";
 import { api } from "@/utils/api";
 import { Center, HStack, Spinner, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
