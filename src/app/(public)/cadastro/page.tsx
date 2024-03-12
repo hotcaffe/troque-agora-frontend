@@ -5,6 +5,7 @@ import { PersonDataForm } from "@/components/cadastro/PersonDataForm";
 import { QRCodeForm } from "@/components/cadastro/QRCodeForm";
 import { Box,  Center, Divider, Link, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, VStack, useSteps } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 const steps = [
     {title: 'Dados pessoais', description: 'Seus dados pessoais'},
@@ -14,26 +15,36 @@ const steps = [
 
 export default function Page() {
     const router = useRouter();
+    const [data, setData] = useState()
     const {activeStep, setActiveStep, goToNext, isCompleteStep} = useSteps({
         index: 0,
         count: steps.length
     })
 
+    function nextPage(newData: any) {
+        if (data) {
+            setData((data: any) => ({...data, ...newData}))
+        } else {
+            setData(newData)
+        }
+        goToNext()
+    }
+
     function pickPage() {
         switch(activeStep) {
             case 0:
-                return <PersonDataForm goToNext={goToNext}/>
+                return <PersonDataForm goToNext={nextPage}/>
             case 1:
-                return <AccountForm goToNext={goToNext}/> 
+                return <AccountForm goToNext={nextPage}/> 
             case 2:
-                return <QRCodeForm goToNext={goToNext}/>
+                return <QRCodeForm goToNext={nextPage} user={data}/>
             default: 
                 return <></>
         }
     }
     
     return (
-        <Center h="100vh" flexDirection="column" gap="20px">
+        <Center py="20px" flexDirection="column" gap="20px">
             <Link  fontWeight="bold" onClick={() => router.push("/home")}>
                 Retornar para a página principal
             </Link>
@@ -53,7 +64,7 @@ export default function Page() {
                     ))}
                 </Stepper>
                 <Divider borderColor="white" borderWidth="2px" mb="10px" mt="5px"/>
-                <Box w="100%" h="700px" bg="white" rounded="10px" >
+                <Box w="100%" minH="700px" bg="white" rounded="10px" >
                     {pickPage()}
                 </Box>
             </VStack>

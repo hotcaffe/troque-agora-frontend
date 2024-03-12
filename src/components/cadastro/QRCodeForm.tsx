@@ -3,14 +3,17 @@ import * as QRCode from 'qrcode'
 import { useEffect, useState } from "react";
 
 interface IQRCodeForm {
-    goToNext: () => void;
+    goToNext: (data: any) => void;
+    user: any;
 }
 
-export function QRCodeForm({goToNext}: IQRCodeForm) {
+export function QRCodeForm({goToNext, user}: IQRCodeForm) {
     const [url, setUrl] = useState('');
 
     useEffect(() => {
-        QRCode.toDataURL('teste', {width: 800, margin: 1}, (err, url) => setUrl(url))
+        const test = JSON.stringify(user)
+        console.log(test)
+        QRCode.toDataURL(test, {width: 800, margin: 1}, (err, url) => setUrl(url))
     }, [])
 
     return (

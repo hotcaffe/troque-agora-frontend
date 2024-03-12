@@ -1,5 +1,5 @@
 interface IUserAddress {
-    id_enderecoUsuarcio: number;
+    id_enderecoUsuario: number;
     vc_lougradouro: string;
     in_numero: number;
     vc_complemento: string;
@@ -13,7 +13,7 @@ interface IUserProfile {
     vc_nome: string;
     in_cpf: number;
     in_celular: number;
-    in_idade: number;
+    dt_nascimento: Date;
     vc_email: string;
     bo_ativo: boolean;
 }
