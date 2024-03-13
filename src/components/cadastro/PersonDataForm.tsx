@@ -18,8 +18,8 @@ interface User extends IUserProfile, IUserAddress {}
 const schema = Yup.object().shape({
     id_usuario: Yup.number().default(0),
     vc_nome: Yup.string().required("O nome é obrigatório"),
-    in_cpf: Yup.number().typeError("O CPF é obrigatório").required("O CPF é obrigatório"),
-    in_celular: Yup.number().typeError("O telefone é obrigatório").required("O telefone é obrigatório"),
+    in_cpf: Yup.number().typeError("O CPF é obrigatório").min(11, "Digite o CPF completo").required("O CPF é obrigatório"),
+    in_celular: Yup.number().typeError("O telefone é obrigatório").min(11, "Digite o telefone completo").required("O telefone é obrigatório"),
     dt_nascimento: Yup.date().typeError("A data de nascimento é obrigatória").max(new Date(new Date().setFullYear(new Date().getFullYear() - 18)), "Você deve ser maior de 18 anos!").required("A data de nascimento é obrigatória"),
     vc_email: Yup.string().default(""),
     bo_ativo: Yup.boolean().default(true),
