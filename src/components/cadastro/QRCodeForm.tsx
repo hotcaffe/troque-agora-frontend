@@ -20,9 +20,9 @@ export function QRCodeForm({goToNext, user}: IQRCodeForm) {
     return (
         <HStack h="100%">
             <VStack w="70%">
-                <Heading my="15px" fontSize="xl" color="teal.300" fontWeight="semibold">
+                {/* <Heading my="15px" fontSize="xl" color="teal.300" fontWeight="semibold">
                     Para continuar o cadastro, acesse nosso aplicativo pelo celular
-                </Heading>
+                </Heading> */}
                 <Heading w="430px" textAlign="center" fontSize="lg" color="teal.800" fontWeight="semibold" >
                     Aponte a câmera do seu celular para a figura abaixo
                 </Heading>

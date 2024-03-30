@@ -10,6 +10,7 @@ export function FilterCard({icon, title, onClick, ...rest}: IFilterCard) {
     return (
         <Center w="60px" h="60px" flexDirection="column" rounded="10px" cursor="pointer" 
             _hover={{filter: 'brightness(0.9)'}} onClick={onClick} {...rest}
+            userSelect="none"
         >
             <Icon as={icon}/>
             <Text fontSize="12px" fontWeight="semibold">{title}</Text>
