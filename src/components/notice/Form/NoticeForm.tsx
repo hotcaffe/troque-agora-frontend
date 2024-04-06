@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Button, ButtonGroup, Center, Checkbox, Divider, Flex, Input, Link, Td, Text, Textarea, Tr, VStack } from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Center, Checkbox, Divider, Flex, HStack, Heading, Icon, Image, Input, Link, Select, Td, Text, Textarea, Tr, VStack, useToast } from "@chakra-ui/react";
 import { FormBody } from "../../common/FormBody";
 import { FormInput } from "../../common/FormInput";
 import { useForm } from "react-hook-form";
@@ -10,14 +10,16 @@ import { INotice, INoticeData, INoticeDetails } from "../../../interfaces/notice
 import { AddNoticeItemForm } from "./NoticeItemForm";
 import { InteractionIcon } from "@/components/common/InteractionIcon";
 import { SimpleStateList } from "@/components/common/SimpleStateList";
-import { X } from "react-feather";
-import {  useState } from "react";
+import { Plus, X, XSquare } from "react-feather";
+import {  useEffect, useRef, useState } from "react";
 import { MaskedInput } from "@/components/common/MaskedInput";
+import { api } from "@/utils/api";
+import { ICategory } from "@/interfaces/category";
 
 const schema = Yup.object().shape({
     id_usuarioAnuncio: Yup.number().required(),
     id_anuncioTroca: Yup.number().required(),
-    id_categoria: Yup.number().required(),
+    id_categoria: Yup.number().typeError('É obrigatório informar a categoria!').required("É obrigatório informar a categoria!"),
     bo_ativo: Yup.boolean().required(),
     vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(128, "Maxímo de 128 caracteres").required("Campo obrigatório"),
     vc_descricao: Yup.string().min(24, "Deve possuir no mínimo 24 caracteres").max(256, "Máximo de 256 caracteres").required("Campo obrigatório"),
@@ -33,33 +35,96 @@ interface INoticeForm {
     data?: INoticeData;
 }
 
+interface ImageBlob {
+    url: string;
+    blob: File;
+}
+
 export function NoticeForm({title, data}: INoticeForm) {
     const [detailList, setDetailList] = useState<INoticeDetails[]>(data?.detalheTroca ? [...data.detalheTroca] : [])
     const {register, handleSubmit, formState} = useForm<INotice>({
         mode: 'all',
         resolver: yupResolver(schema)
     });
+    const [images, setImages] = useState<ImageBlob[]>([])
+    const [categories, setCategories] = useState<ICategory[]>([]);
+    const toast = useToast()
+    const imageBtn = useRef<HTMLDivElement>(null);
 
     function onRemoveItem(index: number) {
         setDetailList(detailList => [...detailList.filter((_, subIndex) => subIndex != index)])
     }
 
-    function onSubmit(data: INotice) {
-        console.log({
+    async function onSubmit(data: INotice) {
+        const notice = {
             ...data,
-            details: detailList
-        })
+            noticeDetails: detailList
+        }
+
+        try {
+            if (images.length <= 0) {
+                imageBtn.current?.scrollIntoView()
+                return toast({
+                    title: 'Envie ao menos uma foto para o seu anúncio!',
+                    status: 'info'
+                })
+            }
+
+            const response = await api.post('/notice', notice).then(res => res.data);
+            const formData = new FormData()
+            images.map(image => formData.append('images', image.blob))
+            await api.post("/notice/images", formData, {
+                params: {
+                    id_anuncioTroca: response.id_anuncioTroca
+                },
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        } catch {
+            return;
+        }
+    }
+
+    async function getCategories() {
+        try {
+            const categories = await api.get("/category", {
+                params: {
+                    bo_ativo: true
+                }
+            }).then(res => res.data) as ICategory[];
+
+            setCategories(categories)
+        } catch {
+            return
+        }
+    }
+
+    function onAddPhoto(file: File) {
+        const url = URL.createObjectURL(file)
+        const image = {
+            url,
+            blob: file
+        }
+        setImages(images => [...images, image])
+    }
+    
+    function onRemovePhoto(url: string) {
+        setImages(images => images.filter(image => image.url != url));
     }
 
     const {errors} = formState;
 
+    useEffect(() => {
+        getCategories()
+    }, [])
+
     return (
         <VStack maxW="1000px" bg="white" p="20px" rounded="10px">
             <FormBody as="form" title={title} >
-                <Box visibility="hidden" h="0px">
+                <Box visibility="hidden" h="0px" w="0px" display="none">
                     <Input {...register("id_usuarioAnuncio")} defaultValue={data ? data.id_usuarioAnuncio : "0"}/>
                     <Input {...register("id_anuncioTroca")} defaultValue={data ? data.id_anuncioTroca : "0"} />
-                    <Input {...register("id_categoria")} defaultValue={data ? data.id_categoria : "0"}/>
                 </Box>
                 <FormInput title='Título' error={errors?.vc_titulo?.message} w="300px" man>
                     <Input placeholder="Digite o título da proposta" type="text" defaultValue={data && data.vc_titulo} {...register("vc_titulo")}/>
@@ -69,6 +134,7 @@ export function NoticeForm({title, data}: INoticeForm) {
                         placeholder="Digite o valor"
                         mask={[{mask: Number, max: 99999999999999, thousandsSeparator: '.'}]} 
                         defaultValue={data && data.vl_preco} 
+                        autoComplete="off"
                         {...register("vl_preco")}
                     />
                 </FormInput>
@@ -82,6 +148,7 @@ export function NoticeForm({title, data}: INoticeForm) {
                             {mask: Number, max: 99999999999999999, thousandsSeparator: '.', scale: 6, from: 0}
                         ]} 
                         defaultValue={data && data.fl_quantidade}
+                        autoComplete="off"
                         {...register("fl_quantidade")}
                     />
                 </FormInput>
@@ -90,14 +157,22 @@ export function NoticeForm({title, data}: INoticeForm) {
                         placeholder="Unidade"
                         mask="aaaa"
                         defaultValue={data && data.ch_unidade}
+                        autoComplete="off"
                         {...register("ch_unidade")}
                     />
+                </FormInput>
+                <FormInput title='Categoria' error={errors?.id_categoria?.message} w="250px" man>
+                    {categories && 
+                        <Select {...register("id_categoria")} placeholder="Selecione uma categoria">
+                            {categories.map(category => <option key={category.id_categoria} value={category.id_categoria}>{category.vc_titulo}</option>)}
+                        </Select>
+                    }
                 </FormInput>
                 <FormInput title='Descrição' error={errors?.vc_descricao?.message} man>
                     <Textarea placeholder="Digite a descrição do seu anúncio" h="120px" defaultValue={data && data.vc_descricao} {...register("vc_descricao")}/>
                 </FormInput>
-                <Checkbox {...register("bo_ativo")} defaultChecked={data && data.bo_ativo}>Anúncio ativo?</Checkbox>
-                <Checkbox hidden isChecked={true} defaultValue={data && data.vc_situacaoAnuncio} {...register("vc_situacaoAnuncio")}/>
+                <Checkbox hidden {...register("bo_ativo")} defaultChecked={data && data.bo_ativo} display="hidden">Anúncio ativo?</Checkbox>
+                <Checkbox hidden isChecked={true} defaultValue={data && data.vc_situacaoAnuncio} {...register("vc_situacaoAnuncio")} />
             </FormBody>
             <Divider borderWidth="2px" my="10px"/>
             <AddNoticeItemForm setDetailList={setDetailList}/>
@@ -122,6 +197,29 @@ export function NoticeForm({title, data}: INoticeForm) {
                 </Center>
             }
             <Divider borderWidth="2px" borderColor="teal.300" my="10px"/>
+            <VStack w="100%" justify="start" align="start">
+                <Heading fontSize="lg" color="teal.700" fontWeight="semibold" w="100%" mb="4px">Envie fotos do produto:</Heading>
+                <HStack wrap="wrap" maxW="960px" py="10px">
+                    {images && 
+                        images.map(image => 
+                            <Box key={image.url} minW="150px" h="150px">
+                                <Icon as={XSquare} position="absolute" color="white" m="5px" ml="120px" fontSize="24px" _hover={{color: "red.300"}} cursor="pointer" zIndex={1} 
+                                    onClick={() => onRemovePhoto(image.url)}
+                                />
+                                <Image src={image.url} objectFit="cover" minW="150px" maxW="150px" h="150px" rounded="10px" border="1px solid" borderColor="gray.400" shadow="md" filter="brightness(0.6)"/>
+                            </Box>
+                        )
+                    }
+                    {(images.length < 12) && 
+                        <Center ref={imageBtn} minW="75px" h="150px" rounded="10px" border="1px solid" borderColor="gray.400" shadow="md" _hover={{bg: 'gray.100'}}>
+                            <Input type="file" accept="image/*" w="75px" h="150px" position="absolute" opacity={0} cursor="pointer" 
+                                onChange={(e) => e.target.files && onAddPhoto(e.target.files[0])}
+                            />
+                            <Icon as={Plus}/>
+                        </Center>
+                    }
+                </HStack>
+            </VStack>
             <Flex w="100%" justify="end">
                 <ButtonGroup>
                     <Link href="/home"><Button variant="inverse" w="100px">Cancelar</Button></Link>

@@ -10,7 +10,7 @@ export function NoticeHistory() {
     const toast = useToast();
 
     async function get(): Promise<INoticeData[]> {
-        return await api.get("/notice").then(res => res?.data);
+        return await api.get("/notice/me").then(res => res?.data);
     }
 
     const {data, isLoading, isError, refetch} = useQuery('notice-history', get, {
@@ -19,7 +19,11 @@ export function NoticeHistory() {
                 description: "Erro ao carregar a lista de anúncios",
                 status: "error"
             })
-        }
+        },
+        refetchInterval: 0,
+        refetchOnMount: false,
+        refetchOnReconnect: false,
+        refetchOnWindowFocus: false
     });
 
     return (

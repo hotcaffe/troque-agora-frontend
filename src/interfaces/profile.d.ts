@@ -29,8 +29,15 @@ interface IUserReview {
 }
 
 interface IUserData extends IUserProfile {
-    enderecoUsuario: IUserAddress;
-    avaliacaoUsuario: IUserReview 
+    userAddress: IUserAddress;
+    userReview: IUserReview 
 }
 
-export {IUserAddress, IUserProfile, IUserReview, IUserData}
+interface IUserTokenData {
+    id_usuario: number,
+	name: string,
+	preferred_username: string,
+	email: string
+}
+
+export {IUserAddress, IUserProfile, IUserReview, IUserData, IUserTokenData}

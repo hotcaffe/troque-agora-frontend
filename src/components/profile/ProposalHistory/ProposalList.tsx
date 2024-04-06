@@ -1,19 +1,19 @@
 import { Checkbox, Divider, HStack, Icon, Input, InputGroup, InputLeftElement, Text, VStack } from "@chakra-ui/react";
-import { IProposalData } from "@/interfaces/proposal";
+import { INoticeProposalFull, IProposalData } from "@/interfaces/proposal";
 import { Search } from "react-feather";
 import { ProposalCard } from "./ProposalCard";
 import { useState } from "react";
 
 interface IProposalList {
     title: string;
-    list: IProposalData[]
+    list: INoticeProposalFull[]
 }
 
 export function ProposalList({title, list}: IProposalList) {
     const [stateList, setStateList] = useState(list);
     const [showCanceled, setShowCanceled] = useState(false);
     function onSearch(search: string) {
-        setStateList(_ => list.filter(proposal => proposal.vc_titulo.includes(search)))
+        setStateList(_ => list.filter(proposalNotice => proposalNotice.proposal.vc_titulo.includes(search)))
     }
 
     return (
@@ -32,8 +32,8 @@ export function ProposalList({title, list}: IProposalList) {
             </VStack>
             <Divider borderColor="teal.300" w="100%" borderWidth="2px" opacity={1}/>
             <VStack mt="10px" overflowY="scroll" p="5px" maxH="780px" gap="15px" pr="15px">
-                {(showCanceled ? stateList : stateList.filter(proposal => proposal.bo_ativo)).map(proposal => (
-                    <ProposalCard key={`${proposal.id_usuarioProposta}-${proposal.id_propostaTroca}`} data={proposal}/>
+                {(showCanceled ? stateList : stateList.filter(proposalNotice => proposalNotice.proposal.bo_ativo)).map(proposalNotice => (
+                    <ProposalCard key={`${proposalNotice.id_usuarioProposta}-${proposalNotice.id_propostaAnuncio}`} data={proposalNotice.proposal}/>
                 ))}
             </VStack>
         </VStack>

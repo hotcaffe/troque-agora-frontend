@@ -24,13 +24,11 @@ export default function Page() {
     }
 
     async function get(filters?: ICategory, pageParam?: number): Promise<INoticeFull[]> {
-        const search = params.get('search')
+        const search = params.get('search') || undefined;
         return await api.get('/notice/list', {
             params: {
-                where: {
-                    id_categoria: filters?.id_categoria,
-                    vc_titulo: search
-                },
+                id_categoria: filters?.id_categoria,
+                vc_titulo: search,
                 relations: "user,userReview"
             }
         }).then(res => res.data)
@@ -45,6 +43,7 @@ export default function Page() {
                 status: "error"
             })
         },
+        getNextPageParam: (lastPage, allPages) => lastPage,
         refetchOnReconnect: false,
         refetchInterval: 0,
         refetchOnMount: false,

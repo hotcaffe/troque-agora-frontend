@@ -51,10 +51,10 @@ export default function Page({params}: {params: {slug: string}}) {
         if (!notice?.id_categoria) return [];
         return await api.get('/notice/list', {
             params: {
-                where : {
-                    id_categoria: notice?.id_categoria
-                },
-                relations: 'user,userReview'
+                id_categoria: notice?.id_categoria,
+                relations: 'user,userReview',
+                page: pageParam,
+                take: 12
             }
         }).then(res => res.data)
     }

@@ -19,7 +19,7 @@ interface IProposalItem {
 }
 
 interface IProposalData extends IProposal {
-    items: IProposalItem[]
+    proposalItems?: IProposalItem[]
 }
 
 interface INoticeProposal {
@@ -27,8 +27,13 @@ interface INoticeProposal {
     id_usuarioAnuncio: number;
     id_anuncioTroca: number;
     id_usuarioProposta: number;
-    id_propostaTroca: number;
     vc_status: string;
 }
 
-export {IProposal, IProposalItem, IProposalData, INoticeProposal}
+interface INoticeProposalFull extends INoticeProposal{
+    proposal: IProposal & {
+        proposalItems?: IProposalItem[]
+    }
+}
+
+export {IProposal, IProposalItem, IProposalData, INoticeProposal, INoticeProposalFull}

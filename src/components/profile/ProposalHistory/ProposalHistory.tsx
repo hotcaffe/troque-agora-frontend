@@ -1,24 +1,15 @@
 import { Divider, HStack, Heading, Skeleton, VStack } from "@chakra-ui/react";
 import { ProposalList } from "./ProposalList";
-import { INoticeProposal, IProposalData } from "@/interfaces/proposal";
+import { INoticeProposal, INoticeProposalFull, IProposalData } from "@/interfaces/proposal";
 import { api } from "@/utils/api";
 import { useQuery } from "react-query";
 
 
 export function ProposalHistory() {
     async function get() {
-        const id_usuario = 1; //pegar do cookie do usuário no backend
-        const sent = await api.get('/proposal', {params: {id_usuarioProposta: id_usuario}}).then(res => res.data) as IProposalData[];
-
-        const relationTo = await api.get('/notice-proposal', {params: {id_usuarioAnuncio: id_usuario}}).then(res => res.data) as INoticeProposal[];
-        const received = await Promise.all(relationTo.map(async (noticeProposal) => {
-            const {id_usuarioProposta, id_propostaTroca} = noticeProposal;
-            return await api.get('/proposal', {params: {id_usuarioProposta, id_propostaTroca}}).then(res => res.data)
-        })) as IProposalData[][] 
-
-        //No caso destas requisições, elas deverão ser realizadas a uma rota do backend que faça o relacionamento automático entre as tabelas, para evitar o array de requisições.
-
-        return {sent, received: received.flat()}
+        const sent = await api.get('/proposal/sent', {params: {relations: 'proposal'}}).then(res => res.data) as INoticeProposalFull[];
+        const received = await api.get('/proposal/received', {params: {relations: 'proposal'}}).then(res => res.data) as INoticeProposalFull[]
+        return {sent, received}
     }
 
     const {data, isLoading} = useQuery('proposal-history', get, {

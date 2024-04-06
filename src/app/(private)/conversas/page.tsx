@@ -50,21 +50,8 @@ export default function Page() {
         }))
     }
 
-    //TESTE
     useEffect(() => {
-        async function login() {
-            await api.get('/user/login', {
-                params: {
-                    username: 'rfusco',
-                    password: 'Senha_teste1'
-                }
-            })
-        }
-        login()
-
-        setTimeout(() => {
-            socket.connect();
-        }, 1000)
+        socket.connect();
 
         socket.on("message received", (message) => {
             setNewMessage(message)
