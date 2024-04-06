@@ -3,6 +3,7 @@ import { NoticeMiniaturePreview } from "./NoticeMiniaturePreview";
 import { useState } from "react";
 import { ZoomImageCard } from "../common/ZoomImageCard";
 import { formatValue } from "@/utils/formatValue";
+import { INoticeImages } from "@/interfaces/notice";
 
 interface INoticeCard {
     title: string;
@@ -13,11 +14,11 @@ interface INoticeCard {
     advertiserChanges: number;
     advertiserReceivedChanges: number;
     advertiserRate: number;
-    imageList: string[];
+    imageList: INoticeImages[];
 }
 
 export function NoticeCard({title, description, noticeTotalValue, noticeUnit, noticeQuantity, advertiserChanges, advertiserReceivedChanges, advertiserRate, imageList}: INoticeCard) {
-    const [selectedImage, setSelectedImage] = useState(imageList[0]);
+    const [selectedImage, setSelectedImage] = useState(imageList[0]?.url);
 
     return (
         <Flex p="10px" bg="white" gap="10px" rounded="10px" maxW="800px" maxH="550px" color="teal.900">
@@ -25,9 +26,9 @@ export function NoticeCard({title, description, noticeTotalValue, noticeUnit, no
                 <Square size="350px" outline="1px solid" outlineColor="gray.50" bg="gray.100" overflow="hidden" rounded="10px">
                     <ZoomImageCard src={selectedImage} maxH="350px" maxW="350px"/>
                 </Square>
-                <HStack maxW="350px" gap="15px" h="120px" overflowX="scroll">
+                <HStack maxW="350px" gap="15px" h="120px" overflowX="scroll" justify="start" w="100%">
                     {imageList.map((image, index) => 
-                        <NoticeMiniaturePreview key={image + index} source={image} onClick={() => setSelectedImage(imageList[index])}/>
+                        <NoticeMiniaturePreview key={image?.name} source={image?.url} onClick={() => setSelectedImage(imageList[index]?.url)}/>
                     )}
                 </HStack>
             </VStack>

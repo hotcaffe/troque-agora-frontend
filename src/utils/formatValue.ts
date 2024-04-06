@@ -3,7 +3,7 @@ function formatValue(type: 'number' | 'currency' | 'date' | 'boolean', value: an
         case 'number':
             return value?.toLocaleString();
         case 'currency':
-            return value?.toLocaleString('pt-BR', {
+            return Number(value)?.toLocaleString('pt-BR', {
                 style: 'currency',
                 currency: 'BRL'
             });

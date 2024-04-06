@@ -1,3 +1,6 @@
+import { ICategory } from "./category";
+import { IUserAddress, IUserProfile } from "./profile";
+
 interface INotice {
     id_usuarioAnuncio: number;
     id_anuncioTroca: number;
@@ -22,4 +25,19 @@ interface INoticeData extends INotice {
     detalheTroca: INoticeDetails[]
 }
 
-export {INotice, INoticeDetails, INoticeData}
+interface INoticeImages {
+    name: string;
+    url: string;
+}
+
+interface INoticeFull extends INotice{
+    images: INoticeImages[];
+    noticeDetails?: INoticeDetails[];
+    category?: ICategory;
+    user?: IUserProfile & {
+        userReview?: IUserReview;
+        userAddress?: IUserAddress
+    };
+}
+
+export {INotice, INoticeDetails, INoticeData, INoticeImages, INoticeFull}

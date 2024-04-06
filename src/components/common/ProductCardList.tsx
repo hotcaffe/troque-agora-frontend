@@ -1,15 +1,17 @@
 import { Box, Center, Circle, Flex, FlexProps, Icon, Spinner, Text, VStack, useToast } from "@chakra-ui/react";
 import { ProductCard } from "./ProductCard";
 import { InfiniteData } from "react-query";
-import { INotice } from "@/interfaces/notice";
-import { useEffect, useState } from "react";;
+import { INotice, INoticeFull, INoticeImages } from "@/interfaces/notice";
+import { Fragment, useEffect, useState } from "react";;
 import { X, Check, Repeat } from "react-feather";
 import { useForm, useWatch } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import { ICategory } from "@/interfaces/category";
 
+
+
 interface IProductCardList extends FlexProps {
-    data: InfiniteData<INotice[]> | undefined;
+    data: InfiniteData<INoticeFull[]> | undefined;
     isLoading: boolean;
     filters?: ICategory | undefined;
 }
@@ -56,8 +58,8 @@ export function ProductCardList({data, isLoading, filters, ...rest}: IProductCar
             }
             <Flex {...rest} gap="10px" wrap="wrap" w="100%">
                 {data?.pages[0].length ? 
-                data.pages.map(products => 
-                    <>
+                data.pages.map((products, index) => 
+                    <Fragment key={index}>
                         {
                             products.map((product) => 
                                 <ProductCard 
@@ -69,7 +71,7 @@ export function ProductCardList({data, isLoading, filters, ...rest}: IProductCar
                                 />
                             )
                         }
-                    </>
+                    </Fragment>
                 ) :
                 <Text>Nenhum produto encontrado com estes parâmetros.</Text>
                 }

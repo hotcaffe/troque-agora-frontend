@@ -3,7 +3,7 @@
 import { ProductCardList } from "@/components/common/ProductCardList";
 import { FilterCardList } from "@/components/home/FilterCardList";
 import { ICategory } from "@/interfaces/category";
-import { INotice } from "@/interfaces/notice";
+import { INotice, INoticeFull } from "@/interfaces/notice";
 import { api } from "@/utils/api";
 import { Flex, useToast } from "@chakra-ui/react";
 import { useSearchParams } from "next/navigation";
@@ -23,12 +23,15 @@ export default function Page() {
         }
     }
 
-    async function get(filters?: ICategory, pageParam?: number): Promise<INotice[]> {
+    async function get(filters?: ICategory, pageParam?: number): Promise<INoticeFull[]> {
         const search = params.get('search')
-        return await api.get('/notice', {
+        return await api.get('/notice/list', {
             params: {
-                id_categoria: filters?.id_categoria,
-                vc_titulo: search
+                where: {
+                    id_categoria: filters?.id_categoria,
+                    vc_titulo: search
+                },
+                relations: "user,userReview"
             }
         }).then(res => res.data)
     }
@@ -41,7 +44,11 @@ export default function Page() {
                 description: "Erro ao carregar anúncio para edição",
                 status: "error"
             })
-        }
+        },
+        refetchOnReconnect: false,
+        refetchInterval: 0,
+        refetchOnMount: false,
+        refetchOnWindowFocus: false
     })
 
     return (

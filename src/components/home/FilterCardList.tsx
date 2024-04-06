@@ -1,7 +1,7 @@
 import { HStack, StackProps } from "@chakra-ui/react";
 import { FilterCard } from "./FilterCard";
 import { api } from "@/utils/api";
-import { Truck } from "react-feather";
+import * as Feather from "react-feather";
 import { ICategory } from "@/interfaces/category";
 import { useEffect, useState } from "react";
 
@@ -11,7 +11,7 @@ interface IFilterCardList extends StackProps{
 }
 
 async function get(): Promise<ICategory[]> {
-    return await api.get('/categories').then(res => res.data);
+    return await api.get('/category').then(res => res.data);
 }
 
 export function FilterCardList({changeFilters, filters, ...rest}: IFilterCardList) {
@@ -28,7 +28,7 @@ export function FilterCardList({changeFilters, filters, ...rest}: IFilterCardLis
     return (
         <HStack gap="10px" {...rest}>
             {data.map(filter => 
-                <FilterCard key={filter.id_categoria} icon={Truck} title={filter.vc_titulo} onClick={() => changeFilters(filter)} 
+                <FilterCard key={filter.id_categoria} icon={Feather[filter.vc_icone]} title={filter.vc_titulo} onClick={() => changeFilters(filter)} 
                     __css={filters?.id_categoria == filter.id_categoria ? {bg: "teal.800", color: "white"} : {bg: "white", color: "teal.800"}}
                 />
             )}
