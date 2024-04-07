@@ -35,7 +35,7 @@ export function NoticeCard({data}: INoticeCard) {
                 }
             </HStack>
             <Divider borderWidth="2px" color="gray.50" />
-            <Text noOfLines={3} fontSize="14px">{data.vc_descricao}</Text>
+            <Text noOfLines={1} fontSize="14px" >{data.vc_descricao}</Text>
             <Divider borderWidth="2px" borderColor={data.bo_ativo ? "teal.600" : "red.600"} opacity={1}/>
             <HStack my="5px" w="100%" justify="space-between" >
                 <Stat>

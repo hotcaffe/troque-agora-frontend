@@ -34,11 +34,13 @@ export function ProposalCard({data}: IProposalCard) {
             <Divider borderWidth="2px" color="gray.50" />
             <Text noOfLines={3} fontSize="14px">{data.vc_descricao}</Text>
             <Divider borderWidth="2px" borderColor={data.bo_ativo ? "teal.600" : "red.600"} opacity={1}/>
-            <HStack my="10px" w="100%" justify="space-between" >
+            <HStack my="10px" w="100%" justify="start" >
                 {data.proposalItems?.slice(0, 5).map((item) => (
-                    <HStack align="center">
+                    <HStack key={item.id_detalheProposta} align="center" maxW="70px">
                         <Circle size="6px" bg={data.bo_ativo ? "teal.800" : "red.800"}/>
-                        <Text h="fit-content" key={item.id_detalheProposta} fontSize="12px">{item.vc_itemTitulo}</Text>
+                        <Text h="fit-content" key={item.id_detalheProposta} fontSize="12px" overflow="hidden" whiteSpace="nowrap" textOverflow="ellipsis">
+                            {item.vc_itemTitulo}
+                        </Text>
                     </HStack>
                         
                 ))}

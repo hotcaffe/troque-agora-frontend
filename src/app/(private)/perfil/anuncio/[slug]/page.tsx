@@ -2,28 +2,34 @@
 
 import { InteractionIcon } from "@/components/common/InteractionIcon";
 import { NoticeForm } from "@/components/notice/Form/NoticeForm";
-import { INoticeData } from "@/interfaces/notice";
+import { UserContext } from "@/contexts/UserContext";
+import { INoticeData, INoticeFull } from "@/interfaces/notice";
 import { api } from "@/utils/api";
 import { Center, HStack, Spinner, Text, useToast } from "@chakra-ui/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { RotateCw } from "react-feather";
 import { useQuery } from "react-query";
 
 export default function Page({params}: {params: {slug: number}}) {
     const toast = useToast();
     const [isNotFound, setIsNotFound] = useState(false);
+    const {getUserData} = useContext(UserContext);
 
-    async function get(): Promise<INoticeData> {
-        const userID = 1; 
-        /* 
-            Pegar do localStorage quando o login estiver completamente integrado. 
-            (No backend, deve ser recuperado os anuncios com base no usuário passado, mas deve antes validar se o usuário passado na requisição é o mesmo do token de acesso)
-        */
-        return await api.get('/notice/' + params.slug, {
-            params: {
-                id_usuarioAnuncio: userID
+    async function get(): Promise<INoticeFull | undefined> {
+        const user = getUserData();
+        if (user) {
+            try {
+                return await api.get('/notice', {
+                    params: {
+                        id_usuarioAnuncio: user.id_usuario,
+                        id_anuncioTroca: params.slug,
+                        relations: 'noticeDetails'
+                    }
+                }).then(res => res.data)
+            } catch {
+                return;
             }
-        }).then(res => res.data)
+        }
     }
 
     const {data, isLoading, isError,  refetch} = useQuery('notice-editing', get, {

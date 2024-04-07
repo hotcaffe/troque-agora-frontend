@@ -7,8 +7,8 @@ import { useQuery } from "react-query";
 
 export function ProposalHistory() {
     async function get() {
-        const sent = await api.get('/proposal/sent', {params: {relations: 'proposal'}}).then(res => res.data) as INoticeProposalFull[];
-        const received = await api.get('/proposal/received', {params: {relations: 'proposal'}}).then(res => res.data) as INoticeProposalFull[]
+        const sent = await api.get('/proposal/sent', {params: {relations: 'proposal,proposalItems'}}).then(res => res.data) as INoticeProposalFull[];
+        const received = await api.get('/proposal/received', {params: {relations: 'proposal,proposalItems'}}).then(res => res.data) as INoticeProposalFull[]
         return {sent, received}
     }
 

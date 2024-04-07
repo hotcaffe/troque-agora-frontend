@@ -6,7 +6,7 @@ import { FormInput } from "../../common/FormInput";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from 'yup'
-import { INotice, INoticeData, INoticeDetails } from "../../../interfaces/notice";
+import { INotice, INoticeDetails, INoticeFull, INoticeImages } from "../../../interfaces/notice";
 import { AddNoticeItemForm } from "./NoticeItemForm";
 import { InteractionIcon } from "@/components/common/InteractionIcon";
 import { SimpleStateList } from "@/components/common/SimpleStateList";
@@ -32,7 +32,7 @@ const schema = Yup.object().shape({
 
 interface INoticeForm {
     title: string;
-    data?: INoticeData;
+    data?: INoticeFull;
 }
 
 interface ImageBlob {
@@ -41,13 +41,17 @@ interface ImageBlob {
 }
 
 export function NoticeForm({title, data}: INoticeForm) {
-    const [detailList, setDetailList] = useState<INoticeDetails[]>(data?.detalheTroca ? [...data.detalheTroca] : [])
-    const {register, handleSubmit, formState} = useForm<INotice>({
+    const [detailList, setDetailList] = useState<INoticeDetails[]>(data?.noticeDetails ? [...data.noticeDetails] : [])
+    const [images, setImages] = useState<ImageBlob[]>([])
+    const [categories, setCategories] = useState<ICategory[]>([]);
+    const [removedImages, setRemovedImages] = useState<string[]>([]);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const {register, handleSubmit, formState, setValue} = useForm<INotice>({
         mode: 'all',
         resolver: yupResolver(schema)
     });
-    const [images, setImages] = useState<ImageBlob[]>([])
-    const [categories, setCategories] = useState<ICategory[]>([]);
+    const {errors, dirtyFields, isDirty} = formState;
     const toast = useToast()
     const imageBtn = useRef<HTMLDivElement>(null);
 
@@ -55,12 +59,71 @@ export function NoticeForm({title, data}: INoticeForm) {
         setDetailList(detailList => [...detailList.filter((_, subIndex) => subIndex != index)])
     }
 
-    async function onSubmit(data: INotice) {
-        const notice = {
+    async function post(notice: INotice) {
+        const body = {
             ...data,
             noticeDetails: detailList
         }
 
+        const response = await api.post('/notice', body).then(res => res.data);
+        const formData = new FormData()
+        images.map(image => formData.append('images', image.blob))
+        await api.post("/notice/images", formData, {
+            params: {
+                id_anuncioTroca: response.id_anuncioTroca
+            },
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        })
+    }
+
+    async function patch(notice: INotice) {
+        if (!isDirty) {
+            return toast({
+                title: "Altere ao menos um campo para atualizar!",
+                status: "info"
+            })
+        }
+
+        const changedFields = {} as any;
+        const objectNotice = new Object(notice) as any;
+
+        for (const key in dirtyFields) {
+            if (objectNotice.hasOwnProperty(key)) {
+                changedFields[key] = objectNotice[key]
+            }
+        }
+
+
+        await api.patch('/notice', changedFields, {
+            params: {
+                id_anuncioTroca: notice.id_anuncioTroca
+            }
+        })
+
+        const formData = new FormData();
+        if (removedImages.length > 0) {
+            formData.append('imagesRemoved', removedImages.join(','))
+        }
+
+        const newImages = images.filter(image => image.blob.lastModified)
+        if (newImages.length > 0) {
+            newImages.map(image => formData.append('imagesInserted', image.blob))
+        }
+
+        await api.patch('/notice/images', formData, {
+            params: {
+                id_anuncioTroca: data?.id_anuncioTroca
+            },
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
+    }
+
+    async function onSubmit(notice: INotice) {
         try {
             if (images.length <= 0) {
                 imageBtn.current?.scrollIntoView()
@@ -70,19 +133,24 @@ export function NoticeForm({title, data}: INoticeForm) {
                 })
             }
 
-            const response = await api.post('/notice', notice).then(res => res.data);
-            const formData = new FormData()
-            images.map(image => formData.append('images', image.blob))
-            await api.post("/notice/images", formData, {
-                params: {
-                    id_anuncioTroca: response.id_anuncioTroca
-                },
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                }
+            setIsLoading(true)
+
+            if (data) {
+                patch(notice)
+                
+            } else {
+                post(notice)
+            }
+
+            toast({
+                title: "Dados salvos com sucesso!",
+                status: 'success',
+                position: 'top-right'
             })
         } catch {
             return;
+        } finally {
+            setIsLoading(false)
         }
     }
 
@@ -110,14 +178,44 @@ export function NoticeForm({title, data}: INoticeForm) {
     }
     
     function onRemovePhoto(url: string) {
+        if (data) {
+            const image = data.images.find(image => image.url == url);
+            if (image) {
+                setRemovedImages(removedImages => [...removedImages, image.name])
+            }
+        }
         setImages(images => images.filter(image => image.url != url));
     }
 
-    const {errors} = formState;
+    async function URLToBlob(url: string) {
+        return await fetch(url, {
+            mode: 'no-cors'
+        }).then(res => res.blob())
+    }
 
     useEffect(() => {
+        async function fillImages(source: INoticeImages[]) {
+            const images = await Promise.all(source?.map(async (image) => {
+                try {
+                    const blob = await URLToBlob(image.url) as File;
+                    return {
+                        url: image.url,
+                        blob
+                    }
+                } catch (error) {
+                    return;
+                }
+            })) as ImageBlob[];
+
+            if (images) setImages(images)
+        } 
         getCategories()
+
+        if (data && images.length <= 0) {
+            fillImages(data.images)
+        }
     }, [])
+
 
     return (
         <VStack maxW="1000px" bg="white" p="20px" rounded="10px">
@@ -163,8 +261,10 @@ export function NoticeForm({title, data}: INoticeForm) {
                 </FormInput>
                 <FormInput title='Categoria' error={errors?.id_categoria?.message} w="250px" man>
                     {categories && 
-                        <Select {...register("id_categoria")} placeholder="Selecione uma categoria">
-                            {categories.map(category => <option key={category.id_categoria} value={category.id_categoria}>{category.vc_titulo}</option>)}
+                        <Select {...register("id_categoria")} defaultValue={data && data?.category?.id_categoria} placeholder="Selecione uma categoria">
+                            {categories.map(category => 
+                                <option key={category.id_categoria} value={category.id_categoria}>{category.vc_titulo}</option>
+                            )}
                         </Select>
                     }
                 </FormInput>
@@ -222,8 +322,8 @@ export function NoticeForm({title, data}: INoticeForm) {
             </VStack>
             <Flex w="100%" justify="end">
                 <ButtonGroup>
-                    <Link href="/home"><Button variant="inverse" w="100px">Cancelar</Button></Link>
-                    <Button w="100px" type="submit" onClick={handleSubmit(onSubmit, () => console.log(errors))}>Finalizar</Button>
+                    <Link href={data ? "/perfil" : "/home"}><Button variant="inverse" w="100px">Cancelar</Button></Link>
+                    <Button w="100px" type="submit" onClick={handleSubmit(onSubmit)} isLoading={isLoading}>{data ? 'Atualizar' : 'Finalizar'}</Button>
                 </ButtonGroup>
             </Flex>
         </VStack>

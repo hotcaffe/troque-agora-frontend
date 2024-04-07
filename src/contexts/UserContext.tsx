@@ -27,6 +27,7 @@ export function UserProvider({children}: {children: ReactNode}) {
 
     async function logout() {
         await api.get("/user/logout")
+        localStorage.removeItem('user-data')
         return;
     }
 
