@@ -37,7 +37,7 @@ export function Notice({setProposal, notice}: INotice) {
                     advertiserRate={notice.user?.userReview?.tx_avaliacaoGeral}
                     imageList={notice.images}
                 />
-                {notice.noticeDetails && <NoticeInterestsCard interestList={notice.noticeDetails} setProposal={setProposal}/>}
+                {notice.noticeDetails && <NoticeInterestsCard id_usuarioAnuncio={notice.id_usuarioAnuncio} interestList={notice.noticeDetails} setProposal={setProposal}/>}
             </Flex>
         </>
     )

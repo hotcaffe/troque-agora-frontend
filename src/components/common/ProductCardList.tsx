@@ -22,6 +22,7 @@ export function ProductCardList({data, isLoading, filters, ...rest}: IProductCar
 
     const [generalProposal, setGeneralProposal] = useState(false);
     const [maxProposal, setMaxProposal] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
     
     const {register, handleSubmit, control, reset} = useForm();
     const watch = useWatch({control})
@@ -41,6 +42,13 @@ export function ProductCardList({data, isLoading, filters, ...rest}: IProductCar
         if (watch.notices && watch.notices.length >= 10) setMaxProposal(true)
         else if (maxProposal && watch.notices.length < 10) setMaxProposal(false)
     }, [watch])
+
+    useEffect(() => {
+        const storage = localStorage.getItem('user-data');
+        if (storage) {
+            setIsAuthenticated(true)
+        }
+    }, [])
 
     if (isLoading) 
         return (
@@ -76,35 +84,39 @@ export function ProductCardList({data, isLoading, filters, ...rest}: IProductCar
                 <Text>Nenhum produto encontrado com estes parâmetros.</Text>
                 }
             </Flex>
-            {generalProposal ? 
-                <VStack>
-                    <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="white" minW="40px" minH="40px" boxShadow="base"
-                        position="fixed"
-                        right="30px"
-                        bottom="90px"
-                        onClick={() => {reset(); setGeneralProposal(false); setMaxProposal(false)}}
-                        border="1px solid"
-                        borderColor="red.300"
-                    >
-                        <Icon as={X} w="32px" h="32px" color="red.300"/>
-                    </Circle>
-                    <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="teal.300" minW="60px" minH="60px" boxShadow="base"
-                        position="fixed"
-                        right="20px"
-                        bottom="20px"
-                        onClick={handleSubmit(createProposal)}
-                    >
-                        <Icon as={Check} w="32px" h="32px" color="white"/>
-                    </Circle>
-                </VStack> :
-                <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="white" minW="60px" minH="60px" boxShadow="base"
-                    position="fixed"
-                    right="20px"
-                    bottom="20px"
-                    onClick={() => setGeneralProposal(true)}
-                >
-                    <Icon as={Repeat} w="32px" h="32px" color="teal.800"/>
-                </Circle>
+            {isAuthenticated &&
+                <>
+                    {generalProposal ? 
+                        <VStack>
+                            <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="white" minW="40px" minH="40px" boxShadow="base"
+                                position="fixed"
+                                right="30px"
+                                bottom="90px"
+                                onClick={() => {reset(); setGeneralProposal(false); setMaxProposal(false)}}
+                                border="1px solid"
+                                borderColor="red.300"
+                            >
+                                <Icon as={X} w="32px" h="32px" color="red.300"/>
+                            </Circle>
+                            <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="teal.300" minW="60px" minH="60px" boxShadow="base"
+                                position="fixed"
+                                right="20px"
+                                bottom="20px"
+                                onClick={handleSubmit(createProposal)}
+                            >
+                                <Icon as={Check} w="32px" h="32px" color="white"/>
+                            </Circle>
+                        </VStack> :
+                        <Circle cursor="pointer" _hover={{filter: 'brightness(0.90)'}} bg="white" minW="60px" minH="60px" boxShadow="base"
+                            position="fixed"
+                            right="20px"
+                            bottom="20px"
+                            onClick={() => setGeneralProposal(true)}
+                        >
+                            <Icon as={Repeat} w="32px" h="32px" color="teal.800"/>
+                        </Circle>
+                    }
+                </>
             }
         </Box>
     )

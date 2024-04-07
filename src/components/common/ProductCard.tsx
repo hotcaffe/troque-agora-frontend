@@ -3,7 +3,7 @@ import { Card, CardFooter, Center, Checkbox, Circle, Divider, Icon, Image, Skele
 import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
 import { api } from "@/utils/api";
-import { IUserData } from "../../interfaces/profile";
+import { IUserData, IUserTokenData } from "../../interfaces/profile";
 import { INotice, INoticeFull } from "@/interfaces/notice";
 import { useEffect, useState } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
@@ -19,9 +19,22 @@ interface IProductCard {
 export function ProductCard({product, generalProposal, register, maxProposal}: IProductCard) {
     const router = useRouter();
     const [isSelected, setIsSelected] = useState(false);
+    const [unavailable, setUnavailable] = useState(false);
 
     useEffect(() => {
         setIsSelected(false)
+    }, [generalProposal])
+
+    useEffect(() => {
+        setUnavailable(!isSelected && !!maxProposal)
+    }, [isSelected, maxProposal]);
+
+    useEffect(() => {
+        const storage = localStorage.getItem('user-data');
+        if (storage) {
+            const user = JSON.parse(storage) as IUserTokenData;
+            if (user.id_usuario == product.id_usuarioAnuncio) setUnavailable(!!generalProposal)
+        }
     }, [generalProposal])
 
     return (
@@ -29,15 +42,15 @@ export function ProductCard({product, generalProposal, register, maxProposal}: I
             onClick={() => !generalProposal && router.push('/produtos/' + `${product.id_usuarioAnuncio}-${product.id_anuncioTroca}`)}
             border={isSelected ? "2px solid" : "none"} 
             borderColor="teal.300" 
-            filter={(!isSelected && maxProposal) ? 'brightness(0.7)' : 'brightness(1)'}
-            _hover={(!isSelected && maxProposal) ? {} : {filter: 'brightness(0.95)'}}
+            filter={(unavailable) ? 'brightness(0.7)' : 'brightness(1)'}
+            _hover={(unavailable) ? {} : {filter: 'brightness(0.95)'}}
          >
             {register && generalProposal &&
                 <Checkbox 
                     variant="absolute"
                     {...register("notices", {onChange: (e) => setIsSelected(e.target.checked)})}
                     value={`${product.id_anuncioTroca}-${product.id_usuarioAnuncio}`}
-                    isDisabled={!isSelected && maxProposal}
+                    isDisabled={unavailable}
                 />
             }
             {generalProposal && <Circle size="20px" bg={isSelected ? "teal.300" : "gray.100"} outline="3px solid" outlineOffset="-3px" outlineColor={isSelected ? "teal.300" : "gray.200"} right="5px" top="5px" position="absolute"/>}

@@ -1,18 +1,24 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Button, Divider, Heading, Link, VStack } from "@chakra-ui/react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { INoticeDetails } from "../../interfaces/notice";
+import { IUserTokenData } from "@/interfaces/profile";
 
 interface INoticeInterestCard {
+    id_usuarioAnuncio: number;
     interestList: INoticeDetails[]
     setProposal: Dispatch<SetStateAction<boolean>>;
 }
 
-export function NoticeInterestsCard({interestList, setProposal}: INoticeInterestCard) {
+export function NoticeInterestsCard({id_usuarioAnuncio, interestList, setProposal}: INoticeInterestCard) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [user, setUser] = useState<IUserTokenData>();
 
     useEffect(() => {
-        const isAuthenticated = localStorage.getItem('user-data') ? true : false;
-        setIsAuthenticated(isAuthenticated)
+        const storage = localStorage.getItem('user-data')
+        if (storage) {
+            setIsAuthenticated(true)
+            setUser(JSON.parse(storage));
+        }
     }, [])
 
     return (
@@ -32,12 +38,17 @@ export function NoticeInterestsCard({interestList, setProposal}: INoticeInterest
                 </Accordion>
             </VStack>
             {isAuthenticated ? 
-                <Button onClick={() => setProposal(true)} fontSize="16px" fontWeight="semibold" w="100%" h="50px" rounded="0 0 10px 10px">
-                    Realizar proposta de troca
-                </Button> : 
+                <>
+                    {(user?.id_usuario != id_usuarioAnuncio) &&
+                        <Button onClick={() => setProposal(true)} fontSize="16px" fontWeight="semibold" w="100%" h="50px" rounded="0 0 10px 10px">
+                            Realizar proposta de troca
+                        </Button>
+                    }
+                </>
+                 : 
                 <Link href="/login" w="100%">
                     <Button fontSize="16px" fontWeight="semibold" w="100%" h="50px" rounded="0 0 10px 10px" variant="secondary">
-                        Fazer login para realizar troca
+                        Entre para realizar trocas
                     </Button>
                 </Link>
             }

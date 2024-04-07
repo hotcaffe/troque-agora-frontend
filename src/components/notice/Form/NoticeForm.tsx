@@ -15,6 +15,7 @@ import {  useEffect, useRef, useState } from "react";
 import { MaskedInput } from "@/components/common/MaskedInput";
 import { api } from "@/utils/api";
 import { ICategory } from "@/interfaces/category";
+import { useRouter } from "next/navigation";
 
 const schema = Yup.object().shape({
     id_usuarioAnuncio: Yup.number().required(),
@@ -46,6 +47,7 @@ export function NoticeForm({title, data}: INoticeForm) {
     const [categories, setCategories] = useState<ICategory[]>([]);
     const [removedImages, setRemovedImages] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(false);
+    const router = useRouter();
 
     const {register, handleSubmit, formState, setValue} = useForm<INotice>({
         mode: 'all',
@@ -61,21 +63,28 @@ export function NoticeForm({title, data}: INoticeForm) {
 
     async function post(notice: INotice) {
         const body = {
-            ...data,
+            ...notice,
             noticeDetails: detailList
         }
 
-        const response = await api.post('/notice', body).then(res => res.data);
-        const formData = new FormData()
-        images.map(image => formData.append('images', image.blob))
-        await api.post("/notice/images", formData, {
-            params: {
-                id_anuncioTroca: response.id_anuncioTroca
-            },
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        })
+
+        try {
+            const response = await api.post('/notice', body).then(res => res.data);
+            const formData = new FormData()
+            images.map(image => formData.append('images', image.blob))
+            
+            await api.post("/notice/images", formData, {
+                params: {
+                    id_anuncioTroca: response.id_anuncioTroca
+                },
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+            router.push("/home")
+        } catch (error) {
+            return;
+        }
     }
 
     async function patch(notice: INotice) {
@@ -143,7 +152,7 @@ export function NoticeForm({title, data}: INoticeForm) {
             }
 
             toast({
-                title: "Dados salvos com sucesso!",
+                title: "Anúncio salvo com sucesso!",
                 status: 'success',
                 position: 'top-right'
             })
