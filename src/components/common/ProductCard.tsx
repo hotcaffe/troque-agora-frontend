@@ -1,5 +1,5 @@
 import { formatValue } from "@/utils/formatValue";
-import { Card, CardFooter, Checkbox, Circle, Divider, Image, Skeleton, Text, VStack } from "@chakra-ui/react";
+import { Card, CardFooter, Center, Checkbox, Circle, Divider, Icon, Image, Skeleton, Text, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import { useQuery } from "react-query";
 import { api } from "@/utils/api";
@@ -7,6 +7,7 @@ import { IUserData } from "../../interfaces/profile";
 import { INotice, INoticeFull } from "@/interfaces/notice";
 import { useEffect, useState } from "react";
 import { FieldValues, UseFormRegister } from "react-hook-form";
+import { Image as FeatherImage } from "react-feather";
 
 interface IProductCard {
     product: INoticeFull;
@@ -42,6 +43,11 @@ export function ProductCard({product, generalProposal, register, maxProposal}: I
             {generalProposal && <Circle size="20px" bg={isSelected ? "teal.300" : "gray.100"} outline="3px solid" outlineOffset="-3px" outlineColor={isSelected ? "teal.300" : "gray.200"} right="5px" top="5px" position="absolute"/>}
             <Image 
                 src={product?.images && product?.images[0]?.url}
+                fallback={
+                    <Center w="100%" h="100%">
+                        <Icon as={FeatherImage} color="gray.400" fontSize="32px"/>
+                    </Center>
+                }
                 alt={product.vc_titulo}
                 borderRadius='lg'
                 bg="gray.50"

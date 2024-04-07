@@ -5,7 +5,7 @@ import { PersonDataForm } from "@/components/cadastro/PersonDataForm";
 import { QRCodeForm } from "@/components/cadastro/QRCodeForm";
 import { Box,  Center, Divider, Link, Step, StepDescription, StepIcon, StepIndicator, StepNumber, StepSeparator, StepStatus, StepTitle, Stepper, VStack, useSteps } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const steps = [
     {title: 'Dados pessoais', description: 'Seus dados pessoais'},
@@ -42,6 +42,13 @@ export default function Page() {
                 return <></>
         }
     }
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("user-data") ? true : false;
+        if (isAuthenticated) {
+            router.push('/perfil')
+        }
+    }, [])
     
     return (
         <Center py="20px" flexDirection="column" gap="20px">

@@ -1,5 +1,6 @@
-import { Image, ImageProps } from "@chakra-ui/react";
+import { Center, Icon, Image, ImageProps } from "@chakra-ui/react";
 import { useState } from "react";
+import {Image as FeatherImage} from 'react-feather';
 
 interface IZoomImageCard extends ImageProps{
 }
@@ -34,6 +35,11 @@ export function ZoomImageCard({...rest}: IZoomImageCard) {
                 setZooming(1);
                 e.currentTarget.style.transform = "scale(1)"
             }}
+            fallback={
+                <Center w="100%" h="100%">
+                    <Icon as={FeatherImage} color="gray.400" fontSize="48px"/>
+                </Center>
+            }
         />
     )
 }

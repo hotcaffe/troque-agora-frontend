@@ -16,18 +16,17 @@ export const RequestHandlerContext = createContext({} as IRequestHandlerContext)
 
 
 export function RequestHandlerProvider({children}: {children: ReactNode}) {
-    // const router = useRouter();
+    const router = useRouter();
     const toast = useToast();
 
     async function logout() {
         await api.get("/user/logout")
-        redirect('/login')
+        router.push('/login')
         return;
     }
 
     function redirectUser() {
-        // router.push("/")
-        redirect("/")
+        router.push("/")
     }
 
     const actions = {
@@ -50,11 +49,11 @@ export function RequestHandlerProvider({children}: {children: ReactNode}) {
         const statusCode = error.response?.status as any;
         
         if (!data.message || !statusCode) {
-            toast({
-                title: 'Erro interno',
-                status: 'error',
-                position: 'top-right'
-            })
+            // toast({
+            //     title: 'Erro interno',
+            //     status: 'error',
+            //     position: 'top-right'
+            // })
         } else {
             toast({
                 title: data.message,

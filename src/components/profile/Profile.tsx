@@ -21,13 +21,7 @@ export function Profile() {
         mode: 'all',
         // resolver: yupResolver(schema)
     });
-    const router = useRouter()
     const {getUserData, logout} = useContext(UserContext)
-
-    function logout2() {
-        logout()
-        router.push("/login")
-    }
 
     const userLocalStorage = getUserData()
 

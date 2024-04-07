@@ -3,9 +3,11 @@
 import { NoticeHistory } from "@/components/profile/NoticeHistory.tsx/NoticeHistory";
 import { Profile } from "@/components/profile/Profile";
 import { ProposalHistory } from "@/components/profile/ProposalHistory/ProposalHistory";
+import { UserContext } from "@/contexts/UserContext";
 import { setCustomCSS } from "@/utils/setCustomCss";
 import {  Tab, TabList, TabPanel, TabPanels, Tabs, VStack } from "@chakra-ui/react";
-import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { useContext, useEffect, useState } from "react";
 
 
 const _cssTab = {

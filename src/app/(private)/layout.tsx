@@ -1,3 +1,5 @@
+"use client"
+
 import { Header } from "@/components/base/Header";
 import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";

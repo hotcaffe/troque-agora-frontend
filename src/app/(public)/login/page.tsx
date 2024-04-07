@@ -7,7 +7,7 @@ import { api } from "@/utils/api";
 import { Flex, Center, createIcon, Heading, Input, Button, Text, FormControl, FormLabel, Checkbox, HStack, Link, Spacer, InputGroup, InputRightAddon, Icon, InputRightElement } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Eye, EyeOff } from "react-feather";
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
@@ -29,6 +29,7 @@ export default function Page() {
         resolver: yupResolver(schema)
     });
     const [hidePassword, setHidePassword] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const {storeUserData} = useContext(UserContext)
 
     const {errors} = formState
@@ -41,6 +42,7 @@ export default function Page() {
 
     async function login({username, password}: ILogin) {
         try {
+            setIsLoading(true)
             const user = await api.get('/user/login', {
                 params: {
                     username,
@@ -53,8 +55,17 @@ export default function Page() {
             router.push("/")
         } catch (error) {
             return;
+        } finally {
+            setIsLoading(false)
         }
     }
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem("user-data") ? true : false;
+        if (isAuthenticated) {
+            router.push('/perfil')
+        }
+    }, [])
 
     return (
         <Center h="100vh" flexDirection="column" gap="20px">
@@ -80,7 +91,7 @@ export default function Page() {
                         <Link>Esqueci minha senha</Link>
                     </HStack>
                     
-                    <Button type="submit" mt="50px" w="100px" onClick={handleSubmit(login)} >Entrar</Button>
+                    <Button type="submit" mt="50px" w="100px" onClick={handleSubmit(login)} isLoading={isLoading}>Entrar</Button>
                 </Flex>
                 <Flex direction="column" align="center" justify="center" w="290px" gap="20px" px="35px" bg="teal.300" rounded="0 10px 10px 0">
                     <Heading fontSize="3xl" mb="20px" color="white" w="100%">Bem vindo ao<br/>Troque-Agora!</Heading>

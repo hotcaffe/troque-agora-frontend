@@ -1,9 +1,9 @@
-"use client"
+'use client'
 
 import { IUserTokenData } from "@/interfaces/profile";
 import { api } from "@/utils/api";
 import { redirect, useRouter } from "next/navigation";
-import { Dispatch, ReactNode, SetStateAction, useState, createContext } from "react";
+import { Dispatch, ReactNode, SetStateAction, useState, createContext, useEffect } from "react";
 
 interface IUserContext {
     storeUserData: (user: IUserTokenData) => void;
@@ -15,20 +15,27 @@ interface IUserContext {
 export const UserContext = createContext({} as IUserContext)
 
 export function UserProvider({children}: {children: ReactNode}) {
+    const router = useRouter()
 
     async function isAuthenticated() {
         try {
             await api.get("/user/me")
             return true
-        } catch {
+        } catch(error) {
+            localStorage.removeItem('user-data')
+            router.push("/login")
             return false
         }
     }
 
     async function logout() {
-        await api.get("/user/logout")
-        localStorage.removeItem('user-data')
-        return;
+        try {
+            await api.get("/user/logout").then(res => res.data)
+            localStorage.removeItem('user-data')
+            router.push("/login")
+        } catch (error) {
+            return;
+        }
     }
 
     function storeUserData(user: IUserTokenData) {

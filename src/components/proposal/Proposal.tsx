@@ -2,7 +2,7 @@ import { Button, ButtonGroup, Center, Divider, Flex, Input, Td, Text, Tr, VStack
 import { FormBody } from "../common/FormBody";
 import { X } from "react-feather";
 import { InteractionIcon } from "../common/InteractionIcon";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { IProposalItem } from "../../interfaces/proposal";
 import { ProposalItemForm } from "./ProposalItemForm";
 import { useForm } from "react-hook-form";
@@ -51,6 +51,13 @@ export function Proposal({setProposal}: IProposal) {
             itemList: proposalList
         })
     }
+
+    useEffect(() => {
+        const isAuthenticated = localStorage.getItem('user-data') ? true : false;
+        if (!isAuthenticated) {
+            router.push('/login')
+        }
+    }, [])
 
     return (
         <VStack bg="white" maxW="1150px" p="20px" rounded="10px" align="start">

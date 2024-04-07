@@ -9,7 +9,7 @@ export function NoticeMiniaturePreview({source, onClick}: INoticeMiniaturePrevie
     return (
         <Image alt="Imagem do produto do anúncio" src={source} onClick={onClick} 
             maxW="100px" minH="100px" maxH="100px" minW="100px" rounded="5px" objectFit="cover" bg="gray.100"
-            _hover={{filter: 'brightness(0.80)'}} cursor="pointer"
+            _hover={{filter: 'brightness(0.60)'}} cursor="pointer" filter="brightness(0.9)"
         />
     )
 }
