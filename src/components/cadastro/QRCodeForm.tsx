@@ -1,7 +1,8 @@
-import { Button, Divider, Flex, HStack, Heading, Image, Square, Text, VStack } from "@chakra-ui/react";
+import { Button, Divider, Flex, HStack, Heading, Image, Spinner, Square, Text, VStack } from "@chakra-ui/react";
 import * as QRCode from 'qrcode'
 import { useEffect, useState } from "react";
 import celpic from '../../../public/images/cel.png'
+import { api } from "@/utils/api";
 
 interface IQRCodeForm {
     goToNext: (data: any) => void;
@@ -10,11 +11,16 @@ interface IQRCodeForm {
 
 export function QRCodeForm({goToNext, user}: IQRCodeForm) {
     const [url, setUrl] = useState('');
+    const [token, setToken] = useState<string>();
 
     useEffect(() => {
-        const test = JSON.stringify(user)
-        console.log(test) 
-        QRCode.toDataURL(test, {width: 800, margin: 1}, (err, url) => setUrl(url))
+        async function getDataToken() {
+            const {token} = await api.post('/user/sign', user).then(res => res.data) as {token: string};
+            QRCode.toDataURL(token, {width: 800, margin: 1}, (err, url) => setUrl(url))
+            setToken(token)
+        }
+
+        getDataToken()
     }, [])
 
     return (
@@ -29,10 +35,10 @@ export function QRCodeForm({goToNext, user}: IQRCodeForm) {
                 <Divider  w="430px" borderWidth="2px" borderColor="teal.300" my="10px"/>
                 <VStack gap="0">
                     <Square size="430px" mb="15px" outline="1px solid" outlineColor="gray.100" rounded="10px">
-                        <Image src={url} w="100%" h="100%"/>
+                        {url ? <Image src={url} w="100%" h="100%"/> : <Spinner />}
                     </Square>
-                    <Text fontSize="14px" color="teal.800">Se tiver dificuldades para ler o código, digite ele manualmente:</Text>
-                    <Text fontSize="14px" color="teal.300">{"xjasdjJASIODUJaskld823UICNadadasf[er]fsdf43[~sdfksdfjn38cdsjnc"}</Text>
+                    <Text fontSize="14px" color="teal.800">Se tiver dificuldades para ler o código, cole ele manualmente:</Text>
+                    <Text fontSize="14px" color="teal.500" maxW="430px" maxH="80px" px="5px" my="5px" overflowY="scroll" bg="gray.100">{token}</Text>
                 </VStack>
                 <Button onClick={goToNext}>Continuar</Button>
             </VStack>

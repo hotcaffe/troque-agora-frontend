@@ -56,6 +56,7 @@ export function Profile() {
         )
     }
 
+
     return (
         <VStack gap="20px" borderRadius="10px" bg="white" w="1000px" py="20px" px="40px">
             <Heading fontSize="28px" color="teal.800" w="100%">Meus dados</Heading>
@@ -88,7 +89,9 @@ export function Profile() {
                         <EditableMaskedInput placeholder="Digite o telefone" mask="(00) 00000-0000" defaultValue={String(data.in_celular)} {...register("in_celular")}/>
                     </FormInput>
                     <FormInput title="Data de nascimento" w="200px" error={errors?.dt_nascimento?.message} man>
-                        <EditableMaskedInput placeholder="Digite sua data de nascimento" mask="DD/MM/YYYY" type="date" defaultValue={String(data.dt_nascimento)} {...register("dt_nascimento")}/>
+                        <EditableMaskedInput placeholder="Digite sua data de nascimento" mask="DD/MM/YYYY" type="date" 
+                            defaultValue={String(data?.dt_nascimento)} {...register("dt_nascimento")}
+                        />
                     </FormInput>
                     <FormInput error={errors.in_cpf} title='CPF' w="150px">
                         <EditableMaskedInput placeholder="Digite o CPF" mask="000.000.000-00" defaultValue={String(data.in_cpf)} {...register("in_cpf")}/>
