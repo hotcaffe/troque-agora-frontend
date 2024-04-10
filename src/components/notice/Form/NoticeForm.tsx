@@ -21,7 +21,7 @@ const schema = Yup.object().shape({
     id_usuarioAnuncio: Yup.number().required(),
     id_anuncioTroca: Yup.number().required(),
     id_categoria: Yup.number().typeError('É obrigatório informar a categoria!').required("É obrigatório informar a categoria!"),
-    bo_ativo: Yup.boolean().required(),
+    bo_ativo: Yup.boolean().default(true).required(),
     vc_titulo: Yup.string().min(5, "Deve possuir no mínimo 5 caracteres").max(128, "Maxímo de 128 caracteres").required("Campo obrigatório"),
     vc_descricao: Yup.string().min(24, "Deve possuir no mínimo 24 caracteres").max(256, "Máximo de 256 caracteres").required("Campo obrigatório"),
     fl_quantidade: Yup.number().typeError('Digite a quantidade').required("Campo obrigatório"),

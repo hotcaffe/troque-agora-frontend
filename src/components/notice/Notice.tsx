@@ -2,13 +2,7 @@ import { Avatar, Flex, HStack, Text, VStack } from "@chakra-ui/react";
 import { NoticeCard } from "./NoticeCard";
 import { NoticeInterestsCard } from "./NoticeInterestsCard";
 import { Dispatch, SetStateAction } from "react";
-import { INoticeData, INoticeFull } from "../../interfaces/notice";
-import { IUserData } from "../../interfaces/profile";
-
-const user = {
-    name: "Raphael Fusco",
-    email: "raphaelfusco@dominio.com"
-}
+import { INoticeFull } from "../../interfaces/notice";
 
 interface INotice {
     setProposal: Dispatch<SetStateAction<boolean>>;

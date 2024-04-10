@@ -45,7 +45,7 @@ export function ProposalItemForm({setProposalList, categories}: IProposalItemFor
                     <Input placeholder="Digite o título da proposta"  {...register("vc_itemTitulo")}/>
                 </FormInput>
                 <FormInput title='Descrição' error={errors?.vc_descricao?.message} w="470px" man>
-                    <Input placeholder="Digite uma descrição pra proposta" type="text" pattern="^[^\s][A-z0-9À-ž\s]+$" {...register("vc_descricao")}/>
+                    <Input placeholder="Digite uma descrição pra proposta" type="text" {...register("vc_descricao")}/>
                 </FormInput>
                 <FormInput title='Quantidade' error={errors?.fl_quantidade?.message} w="150px" man>
                     <Input placeholder="Quantidade" type="number"{...register('fl_quantidade')}/>

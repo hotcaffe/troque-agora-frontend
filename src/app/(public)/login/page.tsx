@@ -54,9 +54,8 @@ export default function Page() {
 
             router.push("/")
         } catch (error) {
-            return;
-        } finally {
             setIsLoading(false)
+            return;
         }
     }
 

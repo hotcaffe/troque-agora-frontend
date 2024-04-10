@@ -1,3 +1,7 @@
+import { ICategory } from "./category";
+import { INotice } from "./notice";
+import { IUserData, IUserProfile } from "./profile";
+
 interface IProposal {
     id_usuarioProposta: number;
     id_propostaTroca: number;
@@ -16,23 +20,26 @@ interface IProposalItem {
     ch_unidade: string;
     vc_situacaoProduto: string;
     id_categoria: number;
+    category?: ICategory;
 }
 
 interface IProposalData extends IProposal {
-    proposalItems?: IProposalItem[]
+    proposalItems?: IProposalItem[];
 }
 
 interface INoticeProposal {
-    id_propostaAnuncio: number;
+    id_propostaTroca: number;
     id_usuarioAnuncio: number;
     id_anuncioTroca: number;
     id_usuarioProposta: number;
-    vc_status: string;
+    vc_status: 'pending' | 'rejected' | 'canceled' | 'accepted' | 'finished';
 }
 
 interface INoticeProposalFull extends INoticeProposal{
     proposal: IProposal & {
-        proposalItems?: IProposalItem[]
+        proposalItems?: IProposalItem[];
+        user?: IUserData,
+        notice?: INotice
     }
 }
 
