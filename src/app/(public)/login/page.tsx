@@ -1,13 +1,15 @@
 'use client'
 
 import { FormInput } from "@/components/common/FormInput";
+import { GenericDialog } from "@/components/common/GenericDialog";
 import { TAPin } from "@/config/icons";
 import { UserContext } from "@/contexts/UserContext";
 import { api } from "@/utils/api";
-import { Flex, Center, createIcon, Heading, Input, Button, Text, FormControl, FormLabel, Checkbox, HStack, Link, Spacer, InputGroup, InputRightAddon, Icon, InputRightElement } from "@chakra-ui/react";
+import { Flex, Center, createIcon, Heading, Input, Button, Text, FormControl, FormLabel, Checkbox, HStack, Link, Spacer, InputGroup, InputRightAddon, Icon, InputRightElement, useToast, useDisclosure } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { createPipe } from "imask";
 import { useRouter } from "next/navigation";
-import { useContext, useEffect, useState } from "react";
+import { LegacyRef, useContext, useEffect, useRef, useState } from "react";
 import { Eye, EyeOff } from "react-feather";
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
@@ -30,7 +32,10 @@ export default function Page() {
     });
     const [hidePassword, setHidePassword] = useState(true);
     const [isLoading, setIsLoading] = useState(false);
-    const {storeUserData} = useContext(UserContext)
+    const {storeUserData} = useContext(UserContext);
+    const toast = useToast();
+    const {isOpen, onOpen, onClose} = useDisclosure();
+    const forgotRef = useRef<HTMLInputElement>(null);
 
     const {errors} = formState
 
@@ -56,6 +61,34 @@ export default function Page() {
         } catch (error) {
             setIsLoading(false)
             return;
+        }
+    }
+
+    async function forgotPassword() {
+        if (forgotRef.current) {
+            const email = forgotRef.current.value;
+            if (!email) {
+                forgotRef.current.focus()
+                return;
+            }
+            try {
+                setIsLoading(true)
+                await api.get("/user/forgot-password", {
+                    params: {
+                        email
+                    }
+                })
+                toast({
+                    title: "Verifique seu email para continuar!",
+                    position: "top-right",
+                    status: "success"
+                })
+            } catch {
+                return;
+            } finally {
+                setIsLoading(false)
+                onClose()
+            }
         }
     }
 
@@ -87,7 +120,16 @@ export default function Page() {
                     <HStack w="400px">
                         <Checkbox>Manter conectado?</Checkbox>
                         <Spacer/>
-                        <Link>Esqueci minha senha</Link>
+                        <GenericDialog 
+                            title="Informe seu email para continuar"
+                            description={<Input type="email" ref={forgotRef} placeholder="seu_email@dominio.com.br"/>}
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            onOpen={onOpen}
+                            onConfirm={forgotPassword}
+                        >
+                            <Link>Esqueci minha senha</Link>
+                        </GenericDialog>
                     </HStack>
                     
                     <Button type="submit" mt="50px" w="100px" onClick={handleSubmit(login)} isLoading={isLoading}>Entrar</Button>

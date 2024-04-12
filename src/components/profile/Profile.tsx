@@ -1,18 +1,19 @@
 "use client"
 
-import { VStack, Heading, Input, Button, Text, HStack, Progress, Icon, Spinner } from "@chakra-ui/react";
+import { VStack, Heading, Input, Button, Text, HStack, Progress, Icon, Spinner, IconButton, useDisclosure, useToast } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FormBody } from "../common/FormBody";
 import {  IUserData } from "../../interfaces/profile";
 import { IMask } from "react-imask";
 import { FormInput } from "../common/FormInput";
 import { EditableMaskedInput } from "../common/EditableMaskedInput";
-import { CheckCircle, XCircle } from "react-feather";
+import { CheckCircle, Edit, XCircle } from "react-feather";
 import { useQuery } from "react-query";
 import { api } from "@/utils/api";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "@/contexts/UserContext";
 import { useRouter } from "next/navigation";
+import { GenericDialog } from "../common/GenericDialog";
 
 
 
@@ -21,7 +22,11 @@ export function Profile() {
         mode: 'all',
         // resolver: yupResolver(schema)
     });
-    const {getUserData, logout} = useContext(UserContext)
+    const {getUserData, logout} = useContext(UserContext);
+    const {isOpen, onOpen, onClose} = useDisclosure();
+    const toast = useToast();
+    const [isResetLoading, setIsResetLoading] = useState(false);
+
 
     const userLocalStorage = getUserData()
 
@@ -37,6 +42,23 @@ export function Profile() {
     const cpfMask = IMask.createPipe({
         mask: '(00) 00000-0000'
     })
+
+    async function changePassword() {
+        setIsResetLoading(true)
+        onClose()
+        try {
+            await api.patch("/user/reset-password")
+            toast({
+                title: "Verifique seu email para continuar!",
+                position: "top-right",
+                status: "success"
+            });
+        } catch {
+            return;
+        } finally {
+            setIsResetLoading(false)
+        }
+    }
 
     const {errors, isDirty, dirtyFields} = formState;
 
@@ -73,11 +95,23 @@ export function Profile() {
                         isDisabled
                     />
                 </FormInput>
-                <FormInput w="fit-content" title="Senha" error={errors.vc_email}>
-                    <Input defaultValue="Senha_usuario" 
-                        cursor="default !important" paddingX="0px" border="none" type="password" 
-                        isDisabled
-                    />
+                <FormInput w="180px" title="Senha" error={errors.vc_email}>
+                    <HStack>
+                        <Input defaultValue="Senha_usuario" 
+                            cursor="default !important" paddingX="0px" border="none" type="password" 
+                            isDisabled
+                        />
+                        <GenericDialog 
+                            title="Tem certeza que deseja trocar a senha?" 
+                            description={`Ao confirmar será enviado um email em [${data.vc_email}] para realizar a troca de senha!`}
+                            isOpen={isOpen}
+                            onClose={onClose}
+                            onConfirm={changePassword}
+                            onOpen={onOpen}
+                        >
+                            <IconButton icon={<Icon as={Edit} w="20px" h="20px"/>} aria-label="Alterar senha" h="30px" w="30px" size="sm" isLoading={isResetLoading} />
+                        </GenericDialog>
+                    </HStack>
                 </FormInput>
             </FormBody>
             <VStack as="form" gap="20px">

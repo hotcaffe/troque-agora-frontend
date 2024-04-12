@@ -8,12 +8,12 @@ interface IGenericDialog {
     onClose: () => void;
     onConfirm: () => void;
     title: string;
-    description: string;
+    description: string | JSX.Element;
 }
 
 export function GenericDialog({children, isOpen, onOpen, onClose, onConfirm, title, description}: IGenericDialog) {
     const cancelRef = useRef<any>();
-    
+
     return (
         <>
             {cloneElement(children, {onClick: onOpen})}
@@ -22,7 +22,7 @@ export function GenericDialog({children, isOpen, onOpen, onClose, onConfirm, tit
                 <AlertDialogOverlay>
                     <AlertDialogContent>
                         <AlertDialogHeader fontWeight="bold">{title}</AlertDialogHeader>
-                        <AlertDialogBody>{description}</AlertDialogBody>
+                        <AlertDialogBody textAlign="justify">{typeof description === "string" ? description : cloneElement(description, {onClick: onOpen})}</AlertDialogBody>
                         <AlertDialogFooter gap="5px">
                             <Button ref={cancelRef} onClick={onClose} variant="secondary">Cancelar</Button>
                             <Button colorScheme="ref" onClick={onConfirm}>Confirmar</Button>
