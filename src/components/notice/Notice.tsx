@@ -1,4 +1,4 @@
-import { Avatar, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import { Avatar, Flex, HStack, Link, Text, VStack } from "@chakra-ui/react";
 import { NoticeCard } from "./NoticeCard";
 import { NoticeInterestsCard } from "./NoticeInterestsCard";
 import { Dispatch, SetStateAction } from "react";
@@ -15,7 +15,9 @@ export function Notice({setProposal, notice}: INotice) {
             <HStack gap="10px" w="100%">
                 <Avatar size="sm"/>
                 <VStack align="start" gap="0">
-                    <Text fontWeight="semibold" color="teal.800">{notice.user?.vc_nome}</Text>
+                    <Link href={"/perfil/" + notice.user?.id_usuario}>
+                        <Text fontWeight="semibold" color="teal.800">{notice.user?.vc_nome}</Text>
+                    </Link>
                     <Text fontSize="12px" color="teal.800">{notice.user?.vc_email}</Text>
                 </VStack>
             </HStack>

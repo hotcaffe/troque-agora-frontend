@@ -24,7 +24,7 @@ export default function Page() {
     const {errors} = formState;
 
     async function onSubmit(data: ITicket) {
-        console.log(data)
+        // console.log(data)
     }
 
     return (

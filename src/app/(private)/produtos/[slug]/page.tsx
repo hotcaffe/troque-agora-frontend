@@ -13,7 +13,6 @@ import { INotice, INoticeData, INoticeFull } from "@/interfaces/notice";
 import { useRouter } from "next/navigation";
 
 export default function Page({params}: {params: {slug: string}}) {
-    console.log(params)
     const [proposal, setProposal] = useState(false);
     const router = useRouter();
 
