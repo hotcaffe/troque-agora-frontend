@@ -51,6 +51,10 @@ const EditableMaskedInput = forwardRef<HTMLInputElement, IEditableMaskedInput>((
         }
     }, [isEditing])
 
+    useEffect(() => {
+        if (ref.current) ref.current.value = defaultValue
+    }, [defaultValue])
+
     return (
         <Flex flexDirection={isEditing ? "column" : "row"} align={isEditing ? "start" : "center"} onBlur={onBlur}>
             <MaskedInput 

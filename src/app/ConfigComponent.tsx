@@ -4,7 +4,7 @@ import { theme } from "@/config/theme";
 import { RequestHandlerProvider } from "@/contexts/RequestHandlerContext";
 import { UserProvider } from "@/contexts/UserContext";
 import { verifiyRouteVisibility } from "@/utils/verifyRouteVisibility";
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 import { usePathname } from "next/navigation";
 import { ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
@@ -22,6 +22,7 @@ export function ConfigComponent({children}: {children: ReactNode}) {
             <ChakraProvider theme={theme}>
                 <RequestHandlerProvider>
                     <UserProvider>
+                        <ColorModeScript initialColorMode='light'/>
                         {isPublicRoute && children}
                         {!isPublicRoute && <PrivateRoutes>{children}</PrivateRoutes>}
                     </UserProvider>

@@ -16,12 +16,14 @@ import * as Yup from 'yup'
 
 interface ILogin {
     username: string;
-    password: string
+    password: string;
+    keepSession?: boolean;
 }
 
 const schema = Yup.object().shape({
     username: Yup.string().required("É obrigatório informar o usuário!"),
-    password: Yup.string().required("É obrigatório inserir a senha!")
+    password: Yup.string().required("É obrigatório inserir a senha!"),
+    keepSession: Yup.boolean().optional()
 })
 
 export default function Page() {
@@ -45,13 +47,14 @@ export default function Page() {
         setHidePassword(!hidePassword);
     }
 
-    async function login({username, password}: ILogin) {
+    async function login({username, password, keepSession}: ILogin) {
         try {
             setIsLoading(true)
             const user = await api.get('/user/login', {
                 params: {
                     username,
-                    password
+                    password,
+                    keepSession
                 }
             }).then(res => res.data);
 
@@ -118,7 +121,7 @@ export default function Page() {
                         </InputGroup>
                     </FormInput>
                     <HStack w="400px">
-                        <Checkbox>Manter conectado?</Checkbox>
+                        <Checkbox {...register("keepSession")}>Manter conectado?</Checkbox>
                         <Spacer/>
                         <GenericDialog 
                             title="Informe seu email para continuar"

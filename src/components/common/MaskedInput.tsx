@@ -1,5 +1,5 @@
 import { IMaskInput } from "react-imask";
-import {FocusEvent, createRef, forwardRef} from 'react'
+import {FocusEvent, createRef, forwardRef, useState} from 'react'
 import { Input, InputProps } from "@chakra-ui/react";
 
 export interface IMaskedInput extends InputProps{
@@ -11,12 +11,12 @@ export interface IMaskedInput extends InputProps{
 const MaskedInput = forwardRef<HTMLInputElement, IMaskedInput>((props, inputRef) => {
     const {onChange, mask, ...rest} = props;
     const ref = createRef();
-    let inputUnmaskedValue: string;
+    const [inputUnmaskedValue, setInputUnmaskedValue] = useState<any>();
 
     return (
         <Input as={IMaskInput} inputRef={inputRef} ref={ref} {...rest} mask={mask} 
             onAccept={(value: any, {_unmaskedValue}: any) => {
-                inputUnmaskedValue = _unmaskedValue;
+                setInputUnmaskedValue(_unmaskedValue)
                 onChange({target: {name: rest.name, value: inputUnmaskedValue}})
             }}
             onBlur={(e) => {

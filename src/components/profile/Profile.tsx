@@ -1,6 +1,6 @@
 "use client"
 
-import { VStack, Heading, Input, Button, Text, HStack, Progress, Icon, Spinner, IconButton, useDisclosure, useToast } from "@chakra-ui/react";
+import { VStack, Heading, Input, Button, Text, HStack, Progress, Icon, Spinner, IconButton, useDisclosure, useToast, Switch, useColorMode } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import { FormBody } from "../common/FormBody";
 import {  IUserData } from "../../interfaces/profile";
@@ -26,6 +26,7 @@ export function Profile() {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const toast = useToast();
     const [isResetLoading, setIsResetLoading] = useState(false);
+    const {colorMode, toggleColorMode} = useColorMode();
 
 
     const userLocalStorage = getUserData()
@@ -81,7 +82,14 @@ export function Profile() {
 
     return (
         <VStack gap="20px" borderRadius="10px" bg="white" w="1000px" py="20px" px="40px">
-            <Heading fontSize="28px" color="teal.800" w="100%">Meus dados</Heading>
+            <HStack justifyContent="space-between" w="100%">
+                <Heading fontSize="28px" color="teal.800" w="100%">Meus dados</Heading>
+                <HStack>
+                    <Text w="120px" fontWeight="semibold" color="gray.600">Modo escuro?</Text>
+                    <Switch colorScheme="teal" onChange={toggleColorMode} isChecked={colorMode === 'dark'} size="lg"/>
+                </HStack>
+
+            </HStack>
             <FormBody title="Conta" w="100%" titleDivider>
                 <FormInput w="fit-content" title="Email" error={errors.vc_email}>
                     <Input defaultValue={data.vc_email} 

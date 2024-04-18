@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ConfigComponent } from './ConfigComponent'
+import { ColorModeScript } from '@chakra-ui/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
