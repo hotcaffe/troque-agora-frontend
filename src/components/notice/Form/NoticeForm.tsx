@@ -178,6 +178,7 @@ export function NoticeForm({title, data}: INoticeForm) {
     }
 
     function onAddPhoto(file: File) {
+        if (!file) return;
         const url = URL.createObjectURL(file)
         const image = {
             url,
